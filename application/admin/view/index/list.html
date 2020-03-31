@@ -1,0 +1,56 @@
+{include file="public/header.html" /}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title ">API列表</h4>
+                  <p class="card-category"> Here is a subtitle for this table</p>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead class=" text-primary">
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          API名称
+                        </th>
+                        <th>
+                          最后修改时间
+                        </th>
+                        <th></th>
+                        <th></th>
+                      </thead>
+                      <tbody>
+                        {volist name="api" id='api'}
+                        <tr>
+                          <td>
+                            {$api.id}
+                          </td>
+                          <td>
+                            {$api.name}
+                          </td>
+                          <td>
+                            {$api.time|date='Y-m-d H:i:s',###}
+                          </td>
+                          <td>
+                            <a href="{:url('index/edit')}?id={$api.id}">编辑</a>
+                          </td>
+                          <td>
+                            <a href="{:url('index/apidel')}?id={$api.id}">删除</a>
+                          </td>
+                        </tr>
+                        {/volist}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{include file="public/footer.html" /}

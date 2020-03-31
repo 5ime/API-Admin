@@ -1,0 +1,1388 @@
+<!doctype>
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+    <meta charset="UTF-8" />
+    <title>orion-font Icon Font | Orion Icon Library</title>
+    <style>
+      html { box-sizing: border-box }
+      *, *:before, *:after { box-sizing: inherit }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.125rem;
+      }
+      
+      .brand-red { color: #ff4d63 }
+      .brand-blue { color: #007aff }
+      
+      .header {
+        display: flex;
+        align-items: center;
+        background-color: #121418;
+        justify-content: space-between;
+        height: 66px;
+        padding: 0 28px;
+        color: white;
+      }
+      
+      .logo_wrapper {
+        display: flex;
+        align-items: flex-start;
+        color: #fff;
+      }
+      
+      .logo_iso,
+      .logo_name {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      
+      .logo_iso {
+        width: 32px;
+        height: 32px;
+      }
+      
+      .logo_name {
+        width: 80px;
+        height: 25px;
+        margin-left: 10px;
+      }
+      
+      .title {
+        font-weight: 300;
+        max-width: 33%;
+        font-size: 1em;
+      }
+      
+      .ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      
+      .wrapper {
+        padding: 1em 3em;
+      }
+      
+      .tiny {
+        font-size: .7em;
+        text-align: center;
+      }
+      
+      .heading,
+      .link {
+        color: inherit;
+        text-decoration: none;
+      }
+      
+      .link {
+        color: #0092FF;
+        cursor: pointer
+      }
+        .link:hover { text-decoration: underline }
+        
+      .heading:hover:after {
+        content: "#";
+        color: #0092FF;
+        margin-left: 2px;
+        opacity: .3;
+        transition: opacity .3s;
+      }
+      
+      .heading:active:after {
+        opacity: 1;
+      }
+      
+      .text {
+        line-height: 1.5;
+      }
+      
+      .pre {
+        color: #202020;
+        tab-ssize: 4px;
+        overflow-x: auto;
+        padding: 1.5em;
+        line-height: 1.5;
+        background: rgba(0, 0, 0, 0.05);
+        font-size: .9em;
+      }
+      
+      .pre-icon {
+        font-size: 12px;
+        padding: .5em 1em;
+        width: 100%;
+        z-index: 2;
+        border-radius: 2px;
+        opacity: .3;
+        transition: opacity .3s;
+        margin: 1px;
+      }
+      
+      .code {
+        font-family: Menlo, mono;
+        font-size: .85em;
+      }
+      
+      .section {
+        padding-left: 24px;
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        margin-left: 12px;
+        margin-bottom: 48px;
+      }
+      
+      .icons-list {
+        overflow: auto;
+        padding: 40px;
+        margin: 0px;
+        list-style: none;
+        padding-bottom: 40px;
+      }
+      
+      .icon {
+        width: 100%;
+        float: left;
+        display: block;
+        transition: opacity 250ms;
+        cursor: pointer;
+        position: relative;
+      }
+      
+        @media (min-width: 767px) { .icon { width: 50% } }
+        @media (min-width: 1023px) { .icon { width: 33.333% } }
+        @media (min-width: 1199px) { .icon { width: 20% } }
+        
+        .icon:after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 0px;
+          right: 0px;
+          bottom: 0px;
+          left: 0px;
+          opacity: 0;
+          box-shadow: 0 .5em 3em rgba(0, 0, 0, .1);
+          transition: opacity .3s;
+        }
+        .icon:hover:after {
+            opacity: 1;
+            z-index: 1;
+        }
+        .icon:before {
+            content: "";
+            padding-top: 100%;
+            display: block;
+        }
+        .icon:hover .orion-font__class {
+            opacity: 1;
+        }
+        .icon:hover .orion-font__code {
+            opacity: 1;
+        }
+      
+      .icon-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        padding: 10px;
+      }
+      
+      .icon-preview {
+        margin-top: auto;
+        margin-bottom: auto;
+        position: relative;
+      }
+      
+      .style {
+        white-space: pre;
+        display: inline-block;
+        font-size: .7em;
+        line-height: 1.5;
+        background: rgba(0,0,0,0.05);
+        tab-size: 4px;
+        color: #202020;
+        margin-top: 1em;
+        width: 100%;
+        outline: 0px;
+        border-left: 4px solid #007aff;
+      }
+      
+      
+        .size-12 .icon-preview,
+        .size-12 .letters { font-size: 12px; }
+      
+        .size-14 .icon-preview,
+        .size-14 .letters { font-size: 14px; }
+      
+        .size-16 .icon-preview,
+        .size-16 .letters { font-size: 16px; }
+      
+        .size-18 .icon-preview,
+        .size-18 .letters { font-size: 18px; }
+      
+        .size-21 .icon-preview,
+        .size-21 .letters { font-size: 21px; }
+      
+        .size-24 .icon-preview,
+        .size-24 .letters { font-size: 24px; }
+      
+        .size-36 .icon-preview,
+        .size-36 .letters { font-size: 36px; }
+      
+        .size-48 .icon-preview,
+        .size-48 .letters { font-size: 48px; }
+      
+        .size-60 .icon-preview,
+        .size-60 .letters { font-size: 60px; }
+      
+        .size-72 .icon-preview,
+        .size-72 .letters { font-size: 72px; }
+      
+
+      /* Icon Font: orion-font */
+
+      @font-face {
+  font-family: "orion-font";
+  src: url("./orion-font.eot");
+  src: url("./orion-font.eot?#iefix") format("embedded-opentype"),
+       url("./orion-font.woff2") format("woff2"),
+       url("./orion-font.woff") format("woff"),
+       url("./orion-font.ttf") format("truetype"),
+       url("./orion-font.svg#orion-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "orion-font";
+    src: url("./orion-font.svg#orion-font") format("svg");
+  }
+}
+
+      [data-icon]:before { content: attr(data-icon); }
+
+      [data-icon]:before,
+      .o-app-layout-1::before,
+.o-archive-1::before,
+.o-archive-folder-1::before,
+.o-bookmark-archive-1::before,
+.o-cd-1::before,
+.o-clock-1::before,
+.o-code-window-1::before,
+.o-computer-display-1::before,
+.o-contact-card-1::before,
+.o-data-storage-1::before,
+.o-database-1::before,
+.o-diploma-1::before,
+.o-document-1::before,
+.o-earth-globe-1::before,
+.o-exit-1::before,
+.o-home-1::before,
+.o-id-card-1::before,
+.o-imac-screen-1::before,
+.o-ipad-1::before,
+.o-laptop-screen-1::before,
+.o-letter-1::before,
+.o-like-hand-1::before,
+.o-medical-chart-1::before,
+.o-mouse-1::before,
+.o-network-1::before,
+.o-news-article-1::before,
+.o-paper-stack-1::before,
+.o-paperwork-1::before,
+.o-presentation-1::before,
+.o-profile-1::before,
+.o-repository-1::before,
+.o-sales-up-1::before,
+.o-search-magnify-1::before,
+.o-settings-window-1::before,
+.o-stack-1::before,
+.o-statistic-1::before,
+.o-survey-1::before,
+.o-table-content-1::before,
+.o-timing-1::before,
+.o-trophy-1::before,
+.o-user-1::before,
+.o-user-details-1::before,
+.o-wifi-router-1::before,
+.o-wireframe-1::before {
+        display: inline-block;
+  font-family: "orion-font";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+      }
+
+      .o-app-layout-1::before { content: "\f300"; }
+.o-archive-1::before { content: "\f301"; }
+.o-archive-folder-1::before { content: "\f302"; }
+.o-bookmark-archive-1::before { content: "\f303"; }
+.o-cd-1::before { content: "\f304"; }
+.o-clock-1::before { content: "\f305"; }
+.o-code-window-1::before { content: "\f306"; }
+.o-computer-display-1::before { content: "\f307"; }
+.o-contact-card-1::before { content: "\f2c3"; }
+.o-data-storage-1::before { content: "\f308"; }
+.o-database-1::before { content: "\f309"; }
+.o-diploma-1::before { content: "\f2c7"; }
+.o-document-1::before { content: "\f30a"; }
+.o-earth-globe-1::before { content: "\f30b"; }
+.o-exit-1::before { content: "\f30c"; }
+.o-home-1::before { content: "\f2ce"; }
+.o-id-card-1::before { content: "\f2d2"; }
+.o-imac-screen-1::before { content: "\f30d"; }
+.o-ipad-1::before { content: "\f30e"; }
+.o-laptop-screen-1::before { content: "\f30f"; }
+.o-letter-1::before { content: "\f310"; }
+.o-like-hand-1::before { content: "\f2d4"; }
+.o-medical-chart-1::before { content: "\f311"; }
+.o-mouse-1::before { content: "\f312"; }
+.o-network-1::before { content: "\f313"; }
+.o-news-article-1::before { content: "\f314"; }
+.o-paper-stack-1::before { content: "\f315"; }
+.o-paperwork-1::before { content: "\f316"; }
+.o-presentation-1::before { content: "\f317"; }
+.o-profile-1::before { content: "\f318"; }
+.o-repository-1::before { content: "\f319"; }
+.o-sales-up-1::before { content: "\f2e9"; }
+.o-search-magnify-1::before { content: "\f323"; }
+.o-settings-window-1::before { content: "\f31a"; }
+.o-stack-1::before { content: "\f2f6"; }
+.o-statistic-1::before { content: "\f31b"; }
+.o-survey-1::before { content: "\f31c"; }
+.o-table-content-1::before { content: "\f31d"; }
+.o-timing-1::before { content: "\f2f9"; }
+.o-trophy-1::before { content: "\f31e"; }
+.o-user-1::before { content: "\f31f"; }
+.o-user-details-1::before { content: "\f320"; }
+.o-wifi-router-1::before { content: "\f321"; }
+.o-wireframe-1::before { content: "\f322"; }
+    </style>
+
+    <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  </head>
+
+  <body>
+    <svg width="0" height="0" style="display:block">
+      <defs>
+        <linearGradient id="orion_logo_a" gradientUnits="userSpaceOnUse" x1="13.183"
+        y1="62.808" x2="79.541" y2="62.808">
+          <stop offset="0" stop-color="#FF4581"></stop>
+          <stop offset="1" stop-color="#FF4D63"></stop>
+        </linearGradient>
+        <linearGradient id="orion_logo_b" gradientUnits="userSpaceOnUse" x1="13.177"
+        y1="29.193" x2="79.535" y2="29.193">
+          <stop offset="0" stop-color="#FF4581"></stop>
+          <stop offset="1" stop-color="#FF4D63"></stop>
+        </linearGradient>
+        <linearGradient id="orion_logo_c" gradientUnits="userSpaceOnUse" x1="13.182"
+        y1="33.549" x2="79.533" y2="33.549">
+          <stop offset="0" stop-color="#FF4581"></stop>
+          <stop offset="1" stop-color="#FF4D63"></stop>
+        </linearGradient>
+        <linearGradient id="orion_logo_d" gradientUnits="userSpaceOnUse" x1="13.186"
+        y1="58.453" x2="79.534" y2="58.453">
+          <stop offset="0" stop-color="#FF4581"></stop>
+          <stop offset="1" stop-color="#FF4D63"></stop>
+        </linearGradient>
+        <linearGradient id="orion_logo_e" gradientUnits="userSpaceOnUse" x1="14.32"
+        y1="77.671" x2="79.601" y2="12.39">
+          <stop offset="0" stop-color="#6757FF"></stop>
+          <stop offset="1" stop-color="#0092FF"></stop>
+        </linearGradient>
+        <linearGradient id="orion_logo_f" gradientUnits="userSpaceOnUse" x1="14.33"
+        y1="77.675" x2="79.611" y2="12.394">
+          <stop offset="0" stop-color="#6757FF"></stop>
+          <stop offset="1" stop-color="#0092FF"></stop>
+        </linearGradient>
+        <linearGradient id="orion_logo_g" gradientUnits="userSpaceOnUse" x1="24.694"
+        y1="88.035" x2="89.969" y2="22.76">
+          <stop offset="0" stop-color="#6757FF"></stop>
+          <stop offset="1" stop-color="#0092FF"></stop>
+        </linearGradient>
+        <linearGradient id="orion_logo_h" gradientUnits="userSpaceOnUse" x1="22.838"
+        y1="69.61" x2="69.095" y2="22.453">
+          <stop offset="0" stop-color="#AB2BFF"></stop>
+          <stop offset="1" stop-color="#863CFF"></stop>
+        </linearGradient>
+      </defs>
+    </svg>
+    <div id="page">
+      <header class="header">
+        <a href="https://orioniconlibrary.com/?utm_source=font_demo" class="logo_wrapper">
+          <svg viewBox="0 0 92 92" class="logo_iso">
+            <g>
+              <ellipse fill="currentColor" cx="46" cy="46" rx="46" ry="46"></ellipse>
+              <path fill="url(#orion_logo_a)" d="M26.2 55.4c-.9 1.5-1.6 3.1-2.2 4.6-2.4 5.7-2.3 9.1-2 10.1.3.1.7.1 1.4.1 3.2 0 7.9-1.4 13.3-4.4-4.7-2.1-8.4-5.8-10.5-10.4z"></path>
+              <path fill="url(#orion_logo_b)" d="M65.8 36.6c.8-1.5 1.6-3.1 2.2-4.6 2.4-5.7 2.3-9.1 2-10.1-.3-.1-.7-.1-1.4-.1-3.2 0-7.9 1.4-13.3 4.4 4.6 2.1 8.4 5.8 10.5 10.4z"></path>
+              <path fill="url(#orion_logo_c)" d="M55.3 13.1c-3-.8-6.1-1.3-9.3-1.3-18.9 0-34.2 15.3-34.2 34.2 0 3.2.5 6.3 1.3 9.3 3.4-8 9.3-16.7 17.4-24.8 8-8.1 16.8-14 24.8-17.4z"></path>
+              <path fill="url(#orion_logo_d)" d="M61.5 61.5c-8 8-16.8 14-24.8 17.4 2.9.8 6.1 1.3 9.3 1.3 18.9 0 34.2-15.3 34.2-34.2 0-3.2-.5-6.3-1.3-9.3-3.4 8-9.3 16.8-17.4 24.8z"></path>
+              <path fill="url(#orion_logo_e)" d="M78.9 36.7c4.1-9.8 4.4-18.5-.4-23.2-2.4-2.4-5.8-3.5-9.8-3.5-4 0-8.6 1.1-13.4 3.1 11.4 3.2 20.4 12.2 23.6 23.6z"></path>
+              <path fill="url(#orion_logo_f)" d="M13.1 55.3c-4.1 9.8-4.4 18.5.4 23.2 2.4 2.4 5.8 3.5 9.8 3.5 4 0 8.6-1.1 13.4-3.1-11.4-3.2-20.4-12.2-23.6-23.6z"></path>
+              <path fill="url(#orion_logo_g)" d="M65.8 36.6c-3 5.6-7.4 11.3-12.7 16.5-5.7 5.7-11.4 9.9-16.5 12.7 2.8 1.4 6 2.1 9.4 2.1 12.1 0 21.9-9.8 21.9-21.9 0-3.4-.7-6.5-2.1-9.4z"></path>
+              <path fill="url(#orion_logo_h)" d="M78.9 36.7c-3.2-11.4-12.2-20.4-23.6-23.6-8 3.4-16.7 9.3-24.8 17.4-8 8-14 16.8-17.4 24.8 3.2 11.4 12.2 20.4 23.6 23.6 8-3.4 16.7-9.3 24.8-17.4 8.1-8 14-16.8 17.4-24.8zM46 67.9c-3.4 0-6.5-.8-9.4-2.1-5.4 3-10.1 4.4-13.3 4.4-.7 0-1.1-.1-1.4-.1-.2-1.1-.4-4.4 2-10.1.6-1.5 1.4-3 2.2-4.6-1.4-2.8-2.1-6-2.1-9.4 0-12.1 9.8-21.9 21.9-21.9 3.4 0 6.5.8 9.4 2.1 5.4-3 10.1-4.4 13.3-4.4.7 0 1.1.1 1.4.1.2 1 .4 4.4-2 10.1-.6 1.5-1.4 3-2.2 4.6 1.4 2.8 2.1 6 2.1 9.4 0 12.1-9.8 21.9-21.9 21.9z"></path>
+            </g>
+          </svg>
+          <svg viewBox="0 0 128.4 39.8" class="logo_name">
+            <g fill="currentColor">
+              <path d="M56 13h6v26h-6zm-42 4.8a8 8 0 1 1-8 8 8 8 0 0 1 8-8m0-6a14 14 0 1 0 14 14 14 14 0 0 0-14-14zm68.5 6a8 8 0 1 1-8 8 8 8 0 0 1 8-8m0-6a14 14 0 1 0 14 14 14 14 0 0 0-14-14zm-31.5.3a14 14 0 0 0-16.9 13.7V39h6V25.8A8 8 0 0 1 51 18.3z"></path>
+              <circle cx="59" cy="4" r="4"></circle>
+              <path d="M128.4 25.8c0-7.7-5.3-14-13-14s-13 6.3-13 14V39h6V25.8c0-4.4 2.6-8 7-8s7 3.6 7 8V39h6z"></path>
+            </g>
+          </svg>
+        </a>
+        
+        <h1 class="title ellipsis">orion-font (44 glyphs)</h1>
+      </header>
+      <section class="wrapper">
+        <p class="tiny">Icon Font generated by <a class="link" href="https://orioniconlibrary.com/?utm_source=font_demo">Orion Icon Library</a></p>
+        <h2>Let&#x27;s use your Icon Font!</h2>
+        
+        <p class="text">Congratulations, your Icon Font <strong>orion-font</strong>
+          from <a class="link" href="https://orioniconlibrary.com/?utm_source=font_demo">Orion Icon Library</a> was
+          created successfully!
+          <br/>In the downloaded folder, you will find the file called <code class="code brand-red">iconfont.css</code> <a class="link" href="iconfont.css" download="iconfont.css">[Open]</a> and
+          the font files called <code class="code brand-red">orion-font.*</code> in 
+          <code class="code">eot</code>, <code class="code">svg</code>, <code class="code">ttf</code>, <code class="code">woff</code> and <code class="code">woff2</code> formats. 
+        </p>
+        
+        <h3 id="include-styles">
+          <a class="heading" href="#include-styles"> Include Styles </a>
+        </h3>
+        
+        <div class="section">
+          <p class="text">
+            Place the file <code class="code">iconfont.css</code> in the same folder of the five font files and include the <code class="code">css</code> in your <code class="code">html</code>.
+          </p>
+          <pre class="pre"><code class="code">&lt;link href="path/to/iconfont.css" rel="stylesheet"/&gt;</code></pre>
+        </div>
+        
+        <div class="section">
+          <p class="text">
+            Otherwise include the snippet below in your own stylesheet, paying attention to point the font files <code class="code brand-red">url("./orion-font.*")</code> to the right location.
+          </p>
+          <pre class="pre"><code class="code">@font-face {
+  font-family: "orion-font";
+  src: url("./orion-font.eot");
+  src: url("./orion-font.eot?#iefix") format("embedded-opentype"),
+       url("./orion-font.woff2") format("woff2"),
+       url("./orion-font.woff") format("woff"),
+       url("./orion-font.ttf") format("truetype"),
+       url("./orion-font.svg#orion-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "orion-font";
+    src: url("./orion-font.svg#orion-font") format("svg");
+  }
+}
+[data-icon]::before { content: attr(data-icon); }
+
+[data-icon]::before,
+.o-app-layout-1::before,
+.o-archive-1::before,
+.o-archive-folder-1::before,
+.o-bookmark-archive-1::before,
+.o-cd-1::before,
+.o-clock-1::before,
+.o-code-window-1::before,
+.o-computer-display-1::before,
+.o-contact-card-1::before,
+.o-data-storage-1::before,
+.o-database-1::before,
+.o-diploma-1::before,
+.o-document-1::before,
+.o-earth-globe-1::before,
+.o-exit-1::before,
+.o-home-1::before,
+.o-id-card-1::before,
+.o-imac-screen-1::before,
+.o-ipad-1::before,
+.o-laptop-screen-1::before,
+.o-letter-1::before,
+.o-like-hand-1::before,
+.o-medical-chart-1::before,
+.o-mouse-1::before,
+.o-network-1::before,
+.o-news-article-1::before,
+.o-paper-stack-1::before,
+.o-paperwork-1::before,
+.o-presentation-1::before,
+.o-profile-1::before,
+.o-repository-1::before,
+.o-sales-up-1::before,
+.o-search-magnify-1::before,
+.o-settings-window-1::before,
+.o-stack-1::before,
+.o-statistic-1::before,
+.o-survey-1::before,
+.o-table-content-1::before,
+.o-timing-1::before,
+.o-trophy-1::before,
+.o-user-1::before,
+.o-user-details-1::before,
+.o-wifi-router-1::before,
+.o-wireframe-1::before {
+  display: inline-block;
+  font-family: "orion-font";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.o-app-layout-1::before { content: "\f300"; }
+.o-archive-1::before { content: "\f301"; }
+.o-archive-folder-1::before { content: "\f302"; }
+.o-bookmark-archive-1::before { content: "\f303"; }
+.o-cd-1::before { content: "\f304"; }
+.o-clock-1::before { content: "\f305"; }
+.o-code-window-1::before { content: "\f306"; }
+.o-computer-display-1::before { content: "\f307"; }
+.o-contact-card-1::before { content: "\f2c3"; }
+.o-data-storage-1::before { content: "\f308"; }
+.o-database-1::before { content: "\f309"; }
+.o-diploma-1::before { content: "\f2c7"; }
+.o-document-1::before { content: "\f30a"; }
+.o-earth-globe-1::before { content: "\f30b"; }
+.o-exit-1::before { content: "\f30c"; }
+.o-home-1::before { content: "\f2ce"; }
+.o-id-card-1::before { content: "\f2d2"; }
+.o-imac-screen-1::before { content: "\f30d"; }
+.o-ipad-1::before { content: "\f30e"; }
+.o-laptop-screen-1::before { content: "\f30f"; }
+.o-letter-1::before { content: "\f310"; }
+.o-like-hand-1::before { content: "\f2d4"; }
+.o-medical-chart-1::before { content: "\f311"; }
+.o-mouse-1::before { content: "\f312"; }
+.o-network-1::before { content: "\f313"; }
+.o-news-article-1::before { content: "\f314"; }
+.o-paper-stack-1::before { content: "\f315"; }
+.o-paperwork-1::before { content: "\f316"; }
+.o-presentation-1::before { content: "\f317"; }
+.o-profile-1::before { content: "\f318"; }
+.o-repository-1::before { content: "\f319"; }
+.o-sales-up-1::before { content: "\f2e9"; }
+.o-search-magnify-1::before { content: "\f323"; }
+.o-settings-window-1::before { content: "\f31a"; }
+.o-stack-1::before { content: "\f2f6"; }
+.o-statistic-1::before { content: "\f31b"; }
+.o-survey-1::before { content: "\f31c"; }
+.o-table-content-1::before { content: "\f31d"; }
+.o-timing-1::before { content: "\f2f9"; }
+.o-trophy-1::before { content: "\f31e"; }
+.o-user-1::before { content: "\f31f"; }
+.o-user-details-1::before { content: "\f320"; }
+.o-wifi-router-1::before { content: "\f321"; }
+.o-wireframe-1::before { content: "\f322"; }</code></pre>
+        </div>
+        
+        <h3 id="icons">
+          <a class="heading" href="#icons"> Icons reference </a>
+        </h3>
+        
+        <p class="text">
+          Once you include the styles, select the Icons you need below to copy the <code class="code brand-red">class</code> or the <code class="code brand-red">codepoint</code> and paste it in your Project.
+          <br />
+          Preview size: <select class="js-size">
+            
+              <option value="size-12" selected>
+                12
+              </option>
+            
+              <option value="size-14" selected>
+                14
+              </option>
+            
+              <option value="size-16" selected>
+                16
+              </option>
+            
+              <option value="size-18" selected>
+                18
+              </option>
+            
+              <option value="size-21" selected>
+                21
+              </option>
+            
+              <option value="size-24" selected>
+                24
+              </option>
+            
+              <option value="size-36" selected>
+                36
+              </option>
+            
+              <option value="size-48" selected>
+                48
+              </option>
+            
+              <option value="size-60" selected>
+                60
+              </option>
+            
+              <option value="size-72" selected>
+                72
+              </option>
+            
+          </select>
+        </p>
+        
+        <div id="icons-preview" class="size-72">
+          <ul class="icons-list">
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-app-layout-1" class="o-app-layout-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-app-layout-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf300;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f300</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-archive-1" class="o-archive-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-archive-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf301;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f301</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-archive-folder-1" class="o-archive-folder-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-archive-folder-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf302;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f302</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-bookmark-archive-1" class="o-bookmark-archive-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-bookmark-archive-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf303;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f303</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-cd-1" class="o-cd-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-cd-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf304;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f304</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-clock-1" class="o-clock-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-clock-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf305;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f305</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-code-window-1" class="o-code-window-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-code-window-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf306;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f306</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-computer-display-1" class="o-computer-display-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-computer-display-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf307;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f307</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-contact-card-1" class="o-contact-card-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-contact-card-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2c3;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2c3</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-data-storage-1" class="o-data-storage-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-data-storage-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf308;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f308</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-database-1" class="o-database-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-database-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf309;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f309</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-diploma-1" class="o-diploma-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-diploma-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2c7;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2c7</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-document-1" class="o-document-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-document-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf30a;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f30a</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-earth-globe-1" class="o-earth-globe-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-earth-globe-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf30b;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f30b</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-exit-1" class="o-exit-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-exit-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf30c;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f30c</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-home-1" class="o-home-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-home-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2ce;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2ce</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-id-card-1" class="o-id-card-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-id-card-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2d2;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2d2</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-imac-screen-1" class="o-imac-screen-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-imac-screen-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf30d;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f30d</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-ipad-1" class="o-ipad-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-ipad-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf30e;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f30e</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-laptop-screen-1" class="o-laptop-screen-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-laptop-screen-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf30f;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f30f</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-letter-1" class="o-letter-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-letter-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf310;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f310</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-like-hand-1" class="o-like-hand-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-like-hand-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2d4;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2d4</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-medical-chart-1" class="o-medical-chart-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-medical-chart-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf311;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f311</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-mouse-1" class="o-mouse-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-mouse-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf312;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f312</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-network-1" class="o-network-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-network-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf313;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f313</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-news-article-1" class="o-news-article-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-news-article-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf314;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f314</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-paper-stack-1" class="o-paper-stack-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-paper-stack-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf315;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f315</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-paperwork-1" class="o-paperwork-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-paperwork-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf316;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f316</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-presentation-1" class="o-presentation-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-presentation-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf317;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f317</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-profile-1" class="o-profile-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-profile-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf318;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f318</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-repository-1" class="o-repository-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-repository-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf319;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f319</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-sales-up-1" class="o-sales-up-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-sales-up-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2e9;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2e9</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-search-magnify-1" class="o-search-magnify-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-search-magnify-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf323;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f323</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-settings-window-1" class="o-settings-window-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-settings-window-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf31a;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f31a</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-stack-1" class="o-stack-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-stack-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2f6;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2f6</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-statistic-1" class="o-statistic-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-statistic-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf31b;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f31b</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-survey-1" class="o-survey-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-survey-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf31c;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f31c</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-table-content-1" class="o-table-content-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-table-content-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf31d;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f31d</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-timing-1" class="o-timing-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-timing-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf2f9;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f2f9</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-trophy-1" class="o-trophy-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-trophy-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf31e;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f31e</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-user-1" class="o-user-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-user-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf31f;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f31f</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-user-details-1" class="o-user-details-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-user-details-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf320;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f320</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-wifi-router-1" class="o-wifi-router-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-wifi-router-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf321;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f321</code></pre>
+                </div>
+              </li>
+              
+            
+              
+              <li class="icon js-item">
+                <div class="icon-wrapper">
+                  <i id="o-wireframe-1" class="o-wireframe-1 icon-preview"></i>
+                  <pre class="pre pre-icon orion-font__class js-item"><code class="js-icon-code">o-wireframe-1</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code">&amp;#xf322;</code></pre>
+                  <pre class="pre pre-icon orion-font__code js-item"><code class="js-icon-code js-unicode">f322</code></pre>
+                </div>
+              </li>
+              
+            
+          </ul>
+        </div>
+        
+        <h3 id="usage">
+          <a class="heading" href="#usage">Usage</a>
+        </h3>
+        
+        <div class="section">
+          <p class="text">
+            There are two ways to include the icons in the <code class="code">html</code>, using <code class="code brand-red">class</code> or <code class="code brand-red">data-icon</code> attribute.
+          </p>
+          <pre class="pre"><code class="code">&lt;span class="o-app-layout-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf300;"&gt;&lt;/span&gt;
+
+&lt;span class="o-archive-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf301;"&gt;&lt;/span&gt;
+
+&lt;span class="o-archive-folder-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf302;"&gt;&lt;/span&gt;
+
+&lt;span class="o-bookmark-archive-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf303;"&gt;&lt;/span&gt;
+
+&lt;span class="o-cd-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf304;"&gt;&lt;/span&gt;
+
+&lt;span class="o-clock-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf305;"&gt;&lt;/span&gt;
+
+&lt;span class="o-code-window-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf306;"&gt;&lt;/span&gt;
+
+&lt;span class="o-computer-display-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf307;"&gt;&lt;/span&gt;
+
+&lt;span class="o-contact-card-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2c3;"&gt;&lt;/span&gt;
+
+&lt;span class="o-data-storage-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf308;"&gt;&lt;/span&gt;
+
+&lt;span class="o-database-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf309;"&gt;&lt;/span&gt;
+
+&lt;span class="o-diploma-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2c7;"&gt;&lt;/span&gt;
+
+&lt;span class="o-document-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf30a;"&gt;&lt;/span&gt;
+
+&lt;span class="o-earth-globe-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf30b;"&gt;&lt;/span&gt;
+
+&lt;span class="o-exit-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf30c;"&gt;&lt;/span&gt;
+
+&lt;span class="o-home-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2ce;"&gt;&lt;/span&gt;
+
+&lt;span class="o-id-card-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2d2;"&gt;&lt;/span&gt;
+
+&lt;span class="o-imac-screen-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf30d;"&gt;&lt;/span&gt;
+
+&lt;span class="o-ipad-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf30e;"&gt;&lt;/span&gt;
+
+&lt;span class="o-laptop-screen-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf30f;"&gt;&lt;/span&gt;
+
+&lt;span class="o-letter-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf310;"&gt;&lt;/span&gt;
+
+&lt;span class="o-like-hand-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2d4;"&gt;&lt;/span&gt;
+
+&lt;span class="o-medical-chart-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf311;"&gt;&lt;/span&gt;
+
+&lt;span class="o-mouse-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf312;"&gt;&lt;/span&gt;
+
+&lt;span class="o-network-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf313;"&gt;&lt;/span&gt;
+
+&lt;span class="o-news-article-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf314;"&gt;&lt;/span&gt;
+
+&lt;span class="o-paper-stack-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf315;"&gt;&lt;/span&gt;
+
+&lt;span class="o-paperwork-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf316;"&gt;&lt;/span&gt;
+
+&lt;span class="o-presentation-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf317;"&gt;&lt;/span&gt;
+
+&lt;span class="o-profile-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf318;"&gt;&lt;/span&gt;
+
+&lt;span class="o-repository-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf319;"&gt;&lt;/span&gt;
+
+&lt;span class="o-sales-up-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2e9;"&gt;&lt;/span&gt;
+
+&lt;span class="o-search-magnify-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf323;"&gt;&lt;/span&gt;
+
+&lt;span class="o-settings-window-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf31a;"&gt;&lt;/span&gt;
+
+&lt;span class="o-stack-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2f6;"&gt;&lt;/span&gt;
+
+&lt;span class="o-statistic-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf31b;"&gt;&lt;/span&gt;
+
+&lt;span class="o-survey-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf31c;"&gt;&lt;/span&gt;
+
+&lt;span class="o-table-content-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf31d;"&gt;&lt;/span&gt;
+
+&lt;span class="o-timing-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf2f9;"&gt;&lt;/span&gt;
+
+&lt;span class="o-trophy-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf31e;"&gt;&lt;/span&gt;
+
+&lt;span class="o-user-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf31f;"&gt;&lt;/span&gt;
+
+&lt;span class="o-user-details-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf320;"&gt;&lt;/span&gt;
+
+&lt;span class="o-wifi-router-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf321;"&gt;&lt;/span&gt;
+
+&lt;span class="o-wireframe-1"&gt;&lt;/span&gt;
+&lt;!-- or --&gt;
+&lt;span data-icon="&amp;#xf322;"&gt;&lt;/span&gt;
+
+</code></pre>
+        </div>
+        
+        <p class="text">
+          You can also use the Icon Font in desktop applications installing the <code class="code">.ttf</code> font on your system. Then copy the unicode character (last row) from the Icons reference and paste it in your application program.
+        </p>
+        
+      </section>
+    </div>
+    
+    <script>      
+      function selectText (element) {
+        var doc = document,
+            text = element,
+            range, 
+            selection;
+        if (doc.body.createTextRange) {
+            range = document.body.createTextRange();
+            range.moveToElementText(text);
+            range.select();
+        } else if (window.getSelection) {
+            selection = window.getSelection();
+            if(selection.toString().length === 0){
+              range = document.createRange();
+              range.selectNodeContents(text);
+              selection.removeAllRanges();
+              selection.addRange(range);
+            }
+        }
+      }
+      
+      var items = document.querySelectorAll('.js-item');
+      [].slice.call(items).forEach(function(elem, i){
+        items[i].addEventListener('click', function(){
+          selectText(this.querySelector('code'))
+        }, false);
+      })
+      
+      var sizes = document.querySelector('.js-size')
+      
+      function setSize (e) {
+        var iconsWrapper = document.getElementById('icons-preview')
+        iconsWrapper.className = e.target.value
+      }
+      sizes.addEventListener('change', setSize, false)
+      
+      var unicodes = document.querySelectorAll('.js-unicode');
+      [].slice.call(unicodes).forEach(function(elem, i){
+        var codeValue = elem.textContent || elem.innerText
+        console.log(String.fromCodePoint(parseInt(codeValue, 16)))
+        elem.innerHTML = String.fromCodePoint(parseInt(codeValue, 16))
+      })
+      
+    </script>
+  </body>
+</html>
+  

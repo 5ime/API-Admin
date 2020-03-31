@@ -1,0 +1,130 @@
+/*
+    Icon Font orion-font generated from orioniconlibrary.com
+  */
+
+  @font-face {
+  font-family: "orion-font";
+  src: url("./orion-font.eot");
+  src: url("./orion-font.eot?#iefix") format("embedded-opentype"),
+       url("./orion-font.woff2") format("woff2"),
+       url("./orion-font.woff") format("woff"),
+       url("./orion-font.ttf") format("truetype"),
+       url("./orion-font.svg#orion-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "orion-font";
+    src: url("./orion-font.svg#orion-font") format("svg");
+  }
+}
+
+  [data-icon]::before { content: attr(data-icon); }
+
+  [data-icon]::before,
+  .o-app-layout-1::before,
+.o-archive-1::before,
+.o-archive-folder-1::before,
+.o-bookmark-archive-1::before,
+.o-cd-1::before,
+.o-clock-1::before,
+.o-code-window-1::before,
+.o-computer-display-1::before,
+.o-contact-card-1::before,
+.o-data-storage-1::before,
+.o-database-1::before,
+.o-diploma-1::before,
+.o-document-1::before,
+.o-earth-globe-1::before,
+.o-exit-1::before,
+.o-home-1::before,
+.o-id-card-1::before,
+.o-imac-screen-1::before,
+.o-ipad-1::before,
+.o-laptop-screen-1::before,
+.o-letter-1::before,
+.o-like-hand-1::before,
+.o-medical-chart-1::before,
+.o-mouse-1::before,
+.o-network-1::before,
+.o-news-article-1::before,
+.o-paper-stack-1::before,
+.o-paperwork-1::before,
+.o-presentation-1::before,
+.o-profile-1::before,
+.o-repository-1::before,
+.o-sales-up-1::before,
+.o-search-magnify-1::before,
+.o-settings-window-1::before,
+.o-stack-1::before,
+.o-statistic-1::before,
+.o-survey-1::before,
+.o-table-content-1::before,
+.o-timing-1::before,
+.o-trophy-1::before,
+.o-user-1::before,
+.o-user-details-1::before,
+.o-wifi-router-1::before,
+.o-wireframe-1::before {
+    display: inline-block;
+  font-family: "orion-font";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  }
+
+  .o-app-layout-1::before { content: "\f300"; }
+.o-archive-1::before { content: "\f301"; }
+.o-archive-folder-1::before { content: "\f302"; }
+.o-bookmark-archive-1::before { content: "\f303"; }
+.o-cd-1::before { content: "\f304"; }
+.o-clock-1::before { content: "\f305"; }
+.o-code-window-1::before { content: "\f306"; }
+.o-computer-display-1::before { content: "\f307"; }
+.o-contact-card-1::before { content: "\f2c3"; }
+.o-data-storage-1::before { content: "\f308"; }
+.o-database-1::before { content: "\f309"; }
+.o-diploma-1::before { content: "\f2c7"; }
+.o-document-1::before { content: "\f30a"; }
+.o-earth-globe-1::before { content: "\f30b"; }
+.o-exit-1::before { content: "\f30c"; }
+.o-home-1::before { content: "\f2ce"; }
+.o-id-card-1::before { content: "\f2d2"; }
+.o-imac-screen-1::before { content: "\f30d"; }
+.o-ipad-1::before { content: "\f30e"; }
+.o-laptop-screen-1::before { content: "\f30f"; }
+.o-letter-1::before { content: "\f310"; }
+.o-like-hand-1::before { content: "\f2d4"; }
+.o-medical-chart-1::before { content: "\f311"; }
+.o-mouse-1::before { content: "\f312"; }
+.o-network-1::before { content: "\f313"; }
+.o-news-article-1::before { content: "\f314"; }
+.o-paper-stack-1::before { content: "\f315"; }
+.o-paperwork-1::before { content: "\f316"; }
+.o-presentation-1::before { content: "\f317"; }
+.o-profile-1::before { content: "\f318"; }
+.o-repository-1::before { content: "\f319"; }
+.o-sales-up-1::before { content: "\f2e9"; }
+.o-search-magnify-1::before { content: "\f323"; }
+.o-settings-window-1::before { content: "\f31a"; }
+.o-stack-1::before { content: "\f2f6"; }
+.o-statistic-1::before { content: "\f31b"; }
+.o-survey-1::before { content: "\f31c"; }
+.o-table-content-1::before { content: "\f31d"; }
+.o-timing-1::before { content: "\f2f9"; }
+.o-trophy-1::before { content: "\f31e"; }
+.o-user-1::before { content: "\f31f"; }
+.o-user-details-1::before { content: "\f320"; }
+.o-wifi-router-1::before { content: "\f321"; }
+.o-wireframe-1::before { content: "\f322"; }
+
+  

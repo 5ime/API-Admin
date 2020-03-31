@@ -1,0 +1,96 @@
+{include file="public/header.html" /}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header card-header-primary">
+                  <h4 class="card-title">修改API</h4>
+                  <p class="card-category">Complete your profile</p>
+                </div>
+              </br>
+                <div class="card-body">
+                  {volist name="api" id='api'}
+                      <form action="{:url('index/upedit')}" method="post">
+                        <div class="row">
+                          <div class="col-md-1">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">ID请勿修改</label>
+                              <input type="text" value="{$api.id}" name="id" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">API名称</label>
+                              <input type="text" value="{$api.name}" name="apiname" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">API文档地址 示例:qqimg</label>
+                              <input type="text" value="{$api.doc}" name="apidoc" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">API请求地址 示例:https://tenapi.cn/qqimg</label>
+                              <input type="text"  value="{$api.url}" name="apipost" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">API请求示例 示例:https://tenapi.cn/qqimg?qq=1449175379</label>
+                              <input type="text"  value="{$api.request}" name="apiposts" class="form-control">
+                            </div>
+                          </div>
+                        </div>
+                      </br>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>API描述</label>
+                              <div class="form-group">
+                                <label class="bmd-label-floating">支持富文本</label>
+                                <textarea class="form-control" name="miaoshu" rows="2">{$api.miaoshu}</textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>调用效果</label>
+                              <div class="form-group">
+                                <label class="bmd-label-floating">支持富文本</label>
+                                <textarea class="form-control" name="diaoyong" rows="2">{$api.demo}</textarea>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>查看代码</label>
+                              <div class="form-group">
+                                <textarea class="form-control" name="democode" rows="2">{$api.democode}</textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group">
+                              <label>请求参数</label>
+                              <div class="form-group"id="test-editor">
+                                <textarea type="text" name="type">{$api.type}</textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                        <div class="clearfix"></div>
+                      </form>
+                  {/volist}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{include file="public/footer.html" /}
