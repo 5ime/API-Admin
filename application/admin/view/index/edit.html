@@ -21,7 +21,7 @@
                           </div>
                           <div class="col-md-2">
                             <div class="form-group">
-                              <label class="bmd-label-floating">API名称</label>
+                              <label class="bmd-label-floating">API名称 提示:保持在六个字内</label>
                               <input type="text" value="{$api.name}" name="apiname" class="form-control">
                             </div>
                           </div>
@@ -39,14 +39,33 @@
                           </div>
                           <div class="col-md-4">
                             <div class="form-group">
-                              <label class="bmd-label-floating">API请求示例 示例:https://tenapi.cn/qqimg?qq=1449175379</label>
+                              <label class="bmd-label-floating">返回数据</label>
                               <input type="text"  value="{$api.request}" name="apiposts" class="form-control">
                             </div>
                           </div>
                         </div>
                       </br>
+                      <div class="row">
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>ICON</label> <small><a href="https://www.mdui.org/docs/material_icon" target="_blank">点我选择图标</a></small>
+                          <div class="form-group">
+                            <input type="text" value="{$api.icon}"  name="apiicon" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-9">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">查看代码</label>
+                          <div class="form-group">
+                            <input type="text" value="{$api.democode}" name="democode" class="form-control">
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                    </br>
                         <div class="row">
-                          <div class="col-md-12">
+                          <div class="col-md-6">
                             <div class="form-group">
                               <label>API描述</label>
                               <div class="form-group">
@@ -61,14 +80,6 @@
                               <div class="form-group">
                                 <label class="bmd-label-floating">支持富文本</label>
                                 <textarea class="form-control" name="diaoyong" rows="2">{$api.demo}</textarea>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>查看代码</label>
-                              <div class="form-group">
-                                <textarea class="form-control" name="democode" rows="2">{$api.democode}</textarea>
                               </div>
                             </div>
                           </div>

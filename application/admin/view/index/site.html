@@ -13,10 +13,16 @@
             <form action="{:url('index/upsite')}" method="post">
               {volist name="api" id='api'}
               <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-3">
                   <div class="form-group">
                     <label>网站名称</label>
                     <input type="text" value="{$api.title}" name="title" class="form-control">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <label>网站链接</label>
+                    <input type="text" value="{$api.url}" name="url" class="form-control">
                   </div>
                 </div>
                 <div class="col-md-7">

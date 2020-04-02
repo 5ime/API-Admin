@@ -1,63 +1,125 @@
+<html lang="en" class="perfect-scrollbar-on"><head>
+	<meta charset="utf-8">
+	<link rel="apple-touch-icon" sizes="76x76" href="/public/static/admin/img/apple-icon.png">
+	<link rel="icon" type="image/png" href="/public/static/admin/img/favicon.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>
+	  API登录
+	</title>
+	<meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+	<!-- CSS Files -->
+	<link href="/public/static/admin/css/material-dashboard.css?v=2.1.2" rel="stylesheet">
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link href="/public/static/admin/demo/demo.css" rel="stylesheet">
+</head>
+  <style>
+	.login{
+		width: 40%;
+		margin: auto;
+		margin-top: 10%;
+	  }
 
-	<html class="translated-ltr"><head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title></title>
-		<meta name="description" content="">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="robots" content="all,follow">
-		<!-- Bootstrap CSS-->
-		<link rel="stylesheet" href="/public/admin/vendor/bootstrap/css/bootstrap.min.css">
-		<!-- Font Awesome CSS-->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-		<!-- Google fonts - Popppins for copy-->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,800">
-		<!-- orion icons-->
-		<link rel="stylesheet" href="/public/admin/css/orionicons.css">
-		<!-- theme stylesheet-->
-		<link rel="stylesheet" href="/public/admin/css/style.default.css" id="theme-stylesheet"><link id="new-stylesheet" rel="stylesheet">
-		<!-- Custom stylesheet - for your changes-->
-		<link rel="stylesheet" href="/public/admin/css/custom.css">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/favicon.png?3">
-		<!-- Tweaks for older IEs--><!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-	  <style type="text/css">/* Chart.js */
-	@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><link type="text/css" rel="stylesheet" charset="UTF-8" href="https://translate.googleapis.com/translate_static/css/translateelement.css"></head>
-	  <body>
-		<div class="page-holder d-flex align-items-center">
-		  <div class="container">
-			<div class="row align-items-center py-5">
-			  <div class="col-5 col-lg-7 mx-auto mb-5 mb-lg-0">
-				<div class="pr-lg-5"><img src="/public/admin/img/illustration.svg" alt="" class="img-fluid"></div>
-			  </div>
-			  <div class="col-lg-5 px-lg-4">
+	body:before{
+		top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .3;
+    z-index: -1;
+    content: "";
+    position: fixed;
+    background: url(https://tenapi.cn/img/acg.php) center/cover;
+	}
+		  
+  </style>
+  <body>
+		<div class="content">
 
-				<h2 class="mb-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎回来！</font></font></h2>
-				<p class="text-muted"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Lorem ipsum dolor坐下，奉献己任，sius do eiusmod tempor incididunt ut labour。</font></font></p>
-				<form action="{:url('login/fromlogin')}" method="post" class="mt-4">
-				  <div class="form-group mb-4">
-					<input type="text" name="username" placeholder="用户名或邮箱地址" class="form-control border-0 shadow form-control-lg">
+				<div class="login">
+				  <div class="card card-profile">
+					<div class="card-avatar">
+					  <a href="javascript:;">
+						<img class="img" src="/public/static/admin/img/faces/marc.jpg">
+					  </a>
+					</div>
+					<div class="card-body">
+					  <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+					  <h4 class="card-title">登录</h4>
+					  <br>
+					<form action="{:url('login/fromlogin')}" method="post">
+					  <div class="row">
+						  <div class="col-md-12">
+							<div class="form-group bmd-form-group">
+							  <label>用户名</label>
+							  <input name="username" type="text" class="form-control">
+							</div>
+						  </div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-12">
+							  <div class="form-group bmd-form-group">
+								<label>密码</label>
+								<input name="password" type="text" class="form-control">
+							  </div>
+							</div>
+						  </div>  
+						  <button type="submit" class="btn btn-primary btn-round">登录</button>
+						</form>
+					</div>
 				  </div>
-				  <div class="form-group mb-4">
-					<input type="password" name="password" placeholder="密码" class="form-control border-0 shadow form-control-lg text-violet">
-				  </div>
-				  <button type="submit" class="btn btn-primary shadow px-5"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"name="">登录</font></font></button>
-				</form>
-			  </div>
-			</div>
-			<p class="mt-5 mb-0 text-gray-400 text-center"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有©2019.公司名称保留所有权利。更多模板</font></font><a href="http://www.cssmoban.com/" target="_blank" title="模板之家"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模板之家</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> -从</font></font><a href="http://www.cssmoban.com/" title="网页模板" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网页模板</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">＆您的公司</font><font style="vertical-align: inherit;">收集</font></font></p>
-			<!-- Please do not remove the backlink to us unless you support further theme's development at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)                 -->
-		  </div>
-		</div>
-		<!-- JavaScript files-->
-		<script src="/public/admin/vendor/jquery/jquery.min.js"></script>
-		<script src="/public/admin/vendor/popper.js/umd/popper.min.js"> </script>
-		<script src="/public/admin/vendor/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/public/admin/vendor/jquery.cookie/jquery.cookie.js"> </script>
-		<script src="/public/admin/vendor/chart.js/Chart.min.js"></script>
-		<script src="/public/admin/js/js.cookie.min.js"></script>
-		<script src="/public/admin/js/front.js"></script><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="https://www.gstatic.com/images/branding/product/1x/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
-	  
-	<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
+
+		
+	  <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px; height: 198px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 72px;"></div></div><div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+	</div>
+	
+	<!--   Core JS Files   -->
+	<script src="/public/static/admin/js/core/jquery.min.js"></script>
+	<script src="/public/static/admin/js/core/popper.min.js"></script>
+	<script src="/public/static/admin/js/core/bootstrap-material-design.min.js"></script>
+	<script src="/public/static/admin/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+	<!-- Plugin for the momentJs  -->
+	<script src="/public/static/admin/js/plugins/moment.min.js"></script>
+	<!--  Plugin for Sweet Alert -->
+	<script src="/public/static/admin/js/plugins/sweetalert2.js"></script>
+	<!-- Forms Validations Plugin -->
+	<script src="/public/static/admin/js/plugins/jquery.validate.min.js"></script>
+	<!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
+	<script src="/public/static/admin/js/plugins/jquery.bootstrap-wizard.js"></script>
+	<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+	<script src="/public/static/admin/js/plugins/bootstrap-selectpicker.js"></script>
+	<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script src="/public/static/admin/js/plugins/bootstrap-datetimepicker.min.js"></script>
+	<!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
+	<script src="/public/static/admin/js/plugins/jquery.dataTables.min.js"></script>
+	<!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
+	<script src="/public/static/admin/js/plugins/bootstrap-tagsinput.js"></script>
+	<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+	<script src="/public/static/admin/js/plugins/jasny-bootstrap.min.js"></script>
+	<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
+	<script src="/public/static/admin/js/plugins/fullcalendar.min.js"></script>
+	<!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
+	<script src="/public/static/admin/js/plugins/jquery-jvectormap.js"></script>
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="/public/static/admin/js/plugins/nouislider.min.js"></script>
+	<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+	<!-- Library for adding dinamically elements -->
+	<script src="/public/static/admin/js/plugins/arrive.min.js"></script>
+	<!--  Google Maps Plugin    -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+	<!-- Chartist JS -->
+	<script src="/public/static/admin/js/plugins/chartist.min.js"></script>
+	<!--  Notifications Plugin    -->
+	<script src="/public/static/admin/js/plugins/bootstrap-notify.js"></script>
+	<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+	<script src="/public/static/admin/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
+	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
+	<script src="/public/static/admin/demo/demo.js"></script>
+
+  
+  
+  </body></html>

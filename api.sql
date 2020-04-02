@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- 数据库: `api`
+-- 数据库: `sanyue`
 --
-CREATE DATABASE `api` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `api`;
 
 -- --------------------------------------------------------
 
@@ -34,24 +32,21 @@ CREATE TABLE IF NOT EXISTS `api_info` (
   `doc` varchar(100) NOT NULL,
   `miaoshu` varchar(200) NOT NULL,
   `url` varchar(100) NOT NULL,
-  `request` varchar(100) NOT NULL,
-  `demo` varchar(100) NOT NULL,
-  `democode` varchar(100) DEFAULT NULL,
+  `request` varchar(1000) NOT NULL,
+  `demo` varchar(1000) NOT NULL,
+  `democode` varchar(1000) DEFAULT NULL,
+  `icon` varchar(50) NOT NULL,
   `time` varchar(50) NOT NULL,
   `type` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
 -- 转存表中的数据 `api_info`
 --
 
-INSERT INTO `api_info` (`id`, `name`, `doc`, `miaoshu`, `url`, `request`, `demo`, `democode`, `time`, `type`) VALUES
-(6, '随机动漫图测试', 'img', 'img', 'img', 'img', 'img', 'img', '1585298199', '<table class="mdui-table"><thead><tr>\r\n<th>参数名称</th><th>类型</th><th>参数值</th><th>描述</th></tr></thead><tbody><tr>\r\n<td><code>测试</code></td>\r\n<td>可选</td><td>gb2312</td>\r\n<td>即编码。不同的参数代表不同的编码</td></tr><tr>\r\n<td><code>测试</code></td>\r\n<td>必选</td><td>js</td>\r\n<td>返回document.write的脚本</td>\r\n</tr></tbody></table>'),
-(7, '随机动漫图测试', 'cs', 'cs', '', '', '', '', '1585231392', ''),
-(8, '测试测试随机动漫图测试', '随机动漫图测试随机动漫图测试', '随机动漫图测试随机动漫图测试随机动漫图测试', '', '', '', NULL, '1585218159', ''),
-(9, '随机动漫图测试', 'qa', '我是描述', '我是请求地址', '我是请求示例', '我是调用效果', NULL, '1585226244', ''),
-(10, '测试', '测试', '测试', '测试', '测试', '测试', NULL, '1585229302', '');
+INSERT INTO `api_info` (`id`, `name`, `doc`, `miaoshu`, `url`, `request`, `demo`, `democode`, `icon`, `time`, `type`) VALUES
+(1, '随机动漫图', 'img', '萝莉二次元什么的最好了', '/api/img/acg.php', '{     "code":"200" #图片状态码     "acgurl":"https:\\/\\/ws1.sinaimg.cn\\/large\\/0072Vf1pgy1foxkfy08umj31kw0w0nng.jpg" #图片地址     "width":"2048" #图片宽     "height":"1152" #图片高 }', '<img  src="https://tenapi.cn/img/acg.php" style=" width: 250px;">', '&lt;img src=&quot;https://tenapi.cn/img/acg.php&quot; style=&quot; width: 250px;&quot;&gt;', 'dvr', '1585812403', '<table class="mdui-table"><thead><tr>\r\n<th>参数名称</th><th>类型</th><th>参数值</th><th>描述</th></tr></thead><tbody><tr>\r\n<td><code>json</code></td>\r\n<td>可选</td><td>json/http/https/img</td>\r\n<td>即返回内容</td>\r\n</tr></tbody></table>');
 
 -- --------------------------------------------------------
 
@@ -62,6 +57,7 @@ INSERT INTO `api_info` (`id`, `name`, `doc`, `miaoshu`, `url`, `request`, `demo`
 CREATE TABLE IF NOT EXISTS `api_setup` (
   `id` int(100) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
+  `url` varchar(30) NOT NULL,
   `description` varchar(100) NOT NULL,
   `keywords` varchar(100) NOT NULL,
   `baidutongji` varchar(100) NOT NULL,
@@ -72,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `api_setup` (
 -- 转存表中的数据 `api_setup`
 --
 
-INSERT INTO `api_setup` (`id`, `title`, `description`, `keywords`, `baidutongji`) VALUES
-(1, '小林API', 'cs ', 'tenapi,免费api,公益Api,随机动漫api,一言api测试测试', '123456测试测试');
+INSERT INTO `api_setup` (`id`, `title`, `url`, `description`, `keywords`, `baidutongji`) VALUES
+(1, 'API', 'http://api.cn/', 'cs ', '免费api,公益Api,随机动漫api,一言api', 'd3b3b1b968a56124689d1366adeacf8f');
 
 -- --------------------------------------------------------
 

@@ -73,6 +73,7 @@ class Index extends Controller
         $data['democode']=$value;//input('post.diaoyong');
         $data['url']=input('post.apipost');
         $data['request']=input('post.apiposts');
+        $data['icon']=input('post.apiicon');
         $data['time']=time();
         $re = Db::name('info')->insert($data);
         if ($re) {
@@ -112,6 +113,7 @@ class Index extends Controller
         $data['url']=input('post.apipost');
         $data['request']=input('post.apiposts');
         $data['type']=input('post.type');
+        $data['icon']=input('post.apiicon');
         $data['time']=time();
         //修改的方法是update
         $id=(int)input('post.id');
@@ -146,6 +148,7 @@ class Index extends Controller
     public function upsite()
     {
         $data['title']=input('post.title');
+        $data['url']=input('post.url');
         $data['description']=input('post.description');
         $data['keywords']=input('post.keyword');
         $data['baidutongji']=input('post.baidutongji');

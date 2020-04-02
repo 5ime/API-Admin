@@ -9,10 +9,10 @@
     <meta name="description" content="{$info.description}">
     <meta name="keywords" content="{$info.keywords}">
 
-	<link rel="stylesheet" type="text/css" href="public/style/css/h.css">
-	<link rel="stylesheet" type="text/css" href="Public/style/css/nekotora.css">
-	<script src="public/style/js/jquery-1.9.1.min.js"></script>
-	<script src="public/style/js/page.js"></script>
+	<link rel="stylesheet" type="text/css" href="public/static/index/css/h.css">
+	<link rel="stylesheet" type="text/css" href="public/static/index/css/nekotora.css">
+	<script src="public/static/index/js/jquery-1.9.1.min.js"></script>
+	<script src="public/static/index/js/page.js"></script>
 </head>
 <body>
 <div class="background">
@@ -59,7 +59,7 @@
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?d3b3b1b968a56124689d1366adeacf8f";
+  hm.src = "https://hm.baidu.com/hm.js?{$info.baidutongji}";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();

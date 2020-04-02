@@ -24,14 +24,18 @@ class Index extends Controller
     public function doc(){
     	$doc=input('id');
         $api=Db::name('info')->where("doc='$doc'")->find();
-        
+        $list=Db::name('info')->select();
+        $info=Db::name('setup')->find();
         //echo Db::name('info')->getLastsql();die;
         if (empty($api)) {
             header("HTTP/1.0 404 Not Found"); 
             return $this->fetch(APP_PATH.'404.html');
         }
+        
     	return view('doc',[
-    		'api'	=> $api
+            'api'	=> $api,
+            'info' => $info,
+            'list' => $list,
     	]);
 	}
 
