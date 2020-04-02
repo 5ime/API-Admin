@@ -1,3 +1,6 @@
+# 食用方法
+将`api.sql`导入数据库,修改`application/database.php`数据库配置文件即可
+默认账号密码均为`123456`
 # 预览图
 ## 首页
 ![1](https://user-images.githubusercontent.com/31686695/78222960-b2481000-74f8-11ea-8abb-c033dcbe65f9.png)
