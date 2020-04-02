@@ -3,6 +3,8 @@
 
 默认账号密码均为`123456` 如需添加API 请将API放入`api`目录
 
+下载最新Releases [点我下载](https://github.com/5ime/api-admin/archive/beta.zip)
+
 # 预览图
 ## 首页
 ![1](https://user-images.githubusercontent.com/31686695/78222960-b2481000-74f8-11ea-8abb-c033dcbe65f9.png)
