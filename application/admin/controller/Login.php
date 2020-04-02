@@ -15,8 +15,10 @@ class Login extends Controller
 		}
 		//首页
 		public function index(){
-	
-		   return view('index');
+			$info=Db::name('setup')->find();
+			return view('index', [
+				'info' => $info,
+			]);  
 		}
     public function fromlogin(){
     	$username=$this->remove_xss($_POST['username']);;
