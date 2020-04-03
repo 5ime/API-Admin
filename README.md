@@ -1,6 +1,8 @@
 # 食用方法
 此程序基于ThinkPHP5.0
 
+`Nginx`请自行设置`伪静态` 运行目录`默认`即可
+
 将`api.sql`导入数据库,修改`application/database.php`数据库配置文件即可
 
 默认账号密码均为`123456` 如需添加API 请将API放入`api`目录
