@@ -1,0 +1,408 @@
+﻿/* 文档最外层 */
+.doc-container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: relative;
+}
+@media (min-width: 480px) {
+  .doc-container {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+}
+@media (min-width: 840px) {
+  .doc-container {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+}
+/* 页面标题 */
+h1.doc-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+}
+@media (min-width: 480px) {
+  h1.doc-title {
+    font-size: 28px;
+    line-height: 36px;
+    margin: 0 0 25px 0;
+  }
+}
+@media (min-width: 840px) {
+  h1.doc-title {
+    font-size: 34px;
+    line-height: 40px;
+    margin: 0 400px 30px 0;
+  }
+}
+/* 组件介绍 */
+.doc-intro {
+  font-size: 16px;
+  margin-bottom: 0;
+  padding: 0 0 48px 0;
+}
+@media (min-width: 480px) {
+  .doc-intro {
+    padding: 0 0 54px 0;
+  }
+}
+@media (min-width: 840px) {
+  .doc-intro {
+    padding: 0 0 60px 0;
+    margin-right: 400px;
+  }
+}
+.doc-no-cover .doc-intro {
+  margin-right: 0;
+}
+.doc-intro p:last-child {
+  margin-bottom: 0;
+}
+/* 组件介绍中的子模块 */
+.doc-intro-module {
+  font-size: 14px;
+  margin-top: 40px;
+}
+.doc-intro-module h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 20px 0;
+}
+.doc-intro-module p {
+  margin-bottom: 1em;
+}
+/* 目录 */
+.doc-toc {
+  margin: 0;
+  font-size: 16px;
+  position: relative;
+  border-left: 3px solid;
+}
+.doc-toc a {
+  text-decoration: none;
+  color: inherit;
+}
+.doc-toc:before {
+  content: 'Contents';
+  font-size: 15px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #757575;
+}
+.doc-toc ul,
+.doc-toc:before {
+  padding-left: 16px;
+}
+.doc-toc ul {
+  list-style: none;
+  margin: 0;
+}
+.doc-toc ul li {
+  margin: 1em 0;
+}
+.doc-toc ul li:first-child {
+  margin-top: 0;
+}
+.doc-toc ul li:last-child {
+  margin-bottom: 0;
+}
+.doc-toc ul li ul {
+  margin: 1em 0;
+  font-size: 0.83em;
+}
+.doc-toc > ul {
+  margin-top: 1em;
+}
+@media (min-width: 480px) {
+  .doc-toc {
+    font-size: 17px;
+    border-left-width: 4px;
+  }
+  .doc-toc ul,
+  .doc-toc:before {
+    padding-left: 18px;
+  }
+}
+@media (min-width: 840px) {
+  .doc-toc {
+    font-size: 18px;
+    border-left-width: 5px;
+    margin-right: 400px;
+  }
+  .doc-toc ul,
+  .doc-toc:before {
+    padding-left: 20px;
+  }
+}
+.doc-no-cover .doc-toc {
+  margin-right: 0;
+}
+/* 封面图 */
+.doc-cover {
+  display: none;
+}
+@media (min-width: 840px) {
+  .doc-cover {
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 80px;
+  }
+  .doc-cover img {
+    width: 360px;
+    height: 360px;
+  }
+}
+/* 正文章节 */
+.doc-chapter {
+  margin: 20px 0 0 0;
+  padding: 0 0 80px 0;
+}
+.doc-chapter-title {
+  margin-top: 2em !important;
+  position: relative;
+  padding: 80px 0 0 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.mdui-theme-layout-dark .doc-chapter-title {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.doc-chapter-title .doc-anchor {
+  position: absolute;
+  top: -40px;
+}
+.doc-chapter-title-first {
+  border-top: none !important;
+  margin-top: 0 !important;
+}
+/* 正文小章节标题 */
+.doc-article-title {
+  position: relative;
+  margin: 84px 0 30px 0 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+.doc-article-title .doc-anchor {
+  position: absolute;
+  top: -100px;
+}
+
+/**
+ * ==============================================================
+ * ======================================================= 底部翻页
+ */
+/* 底部翻页 */
+.doc-footer-nav {
+  height: 96px;
+}
+.doc-footer-nav-left,
+.doc-footer-nav-right {
+  height: 96px;
+}
+.doc-footer-nav-left {
+  text-align: left;
+}
+.doc-footer-nav-right {
+  text-align: right;
+}
+.doc-footer-nav-text {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  line-height: 24px;
+  padding-top: 24px;
+  width: 100%;
+}
+.doc-footer-nav-text .mdui-icon {
+  padding-top: 23px;
+  width: 24px;
+}
+.doc-footer-nav-text .doc-footer-nav-direction {
+  font-size: 15px;
+  line-height: 18px;
+  margin-bottom: 1px;
+  opacity: 0.55;
+}
+.doc-footer-nav-left .mdui-icon {
+  float: left;
+  margin-right: 10px;
+}
+.doc-footer-nav-right .mdui-icon {
+  float: right;
+  margin-left: 10px;
+}
+.doc-footer-nav-left .doc-footer-nav-chapter {
+  margin-left: 34px;
+}
+.doc-footer-nav-right .doc-footer-nav-chapter {
+  margin-right: 34px;
+}
+.mdui-theme-layout-dark .doc-footer-nav {
+  background-color: #212121 !important;
+}
+.mdui-theme-layout-dark .doc-footer-nav-left,
+.mdui-theme-layout-dark .doc-footer-nav-right {
+  background-color: #212121 !important;
+}
+.mdui-theme-layout-dark .doc-footer-nav-text {
+  color: #fff;
+}
+
+/**
+ * ===============================================================
+ * =========================================================== 演示
+ */
+.doc-example {
+  position: relative;
+  margin-bottom: 2.6em;
+}
+/* 实例演示 */
+.doc-example-demo {
+  padding: 0;
+  -webkit-transition: padding .3s;
+  -moz-transition: padding .3s;
+  -ms-transition: padding .3s;
+  -o-transition: padding .3s;
+  transition: padding .3s;
+}
+.doc-example-demo:after {
+  clear: both;
+  display: table;
+  content: ' ';
+}
+
+/* Example 文字 */
+.doc-example-demo-label {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  line-height: 1;
+  padding: 9px 14px;
+  color: rgba(0, 0, 0, 0.38);
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 3px 3px 0 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.mdui-theme-layout-dark .doc-example-demo-label {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.5);
+}
+/* 实例代码 */
+.doc-example-code {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 14px !important;
+  margin: 0;
+  display: none;
+}
+.mdui-theme-layout-dark .doc-example-code {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.doc-example-code code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 1.7;
+  padding: 0;
+}
+/* 代码中关键类名高亮 */
+.doc-example-code-required {
+  padding: 2px;
+  background-color: #E8EAF6;
+}
+.doc-example-code-required * {
+  color: #FF4081;
+}
+/* 代码中添加链接 */
+.doc-example-code a {
+  text-decoration: none;
+}
+.doc-example-tools {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: top .3s;
+  -moz-transition: top .3s;
+  -ms-transition: top .3s;
+  -o-transition: top .3s;
+  transition: top .3s;
+}
+.doc-example-tools a {
+  color: rgba(0, 0, 0, 0.54);
+  margin: 0 8px;
+}
+.doc-example-tools a:hover {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mdui-theme-layout-dark .doc-example-tools a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mdui-theme-layout-dark .doc-example-tools a:hover {
+  color: #ffffff;
+}
+.doc-example-showcode .doc-example-demo {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-top: none;
+  padding: 14px;
+}
+.mdui-theme-layout-dark .doc-example-showcode .doc-example-demo {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.doc-example-showcode .doc-example-demo-label {
+  display: block;
+}
+.doc-example-showcode .doc-example-code {
+  display: block;
+}
+.doc-example-showcode .doc-example-tools {
+  top: 4px;
+}
+
+/**
+ * ============================================================
+ * =================================================== 常用工具类
+ */
+/* 小型的圆形 */
+.doc-color-circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+/* 添加内边距 */
+.doc-box-padding {
+  padding: 10px 15px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+}
+
+/**
+ * =========================================================
+ * ======================================== 根据主题设置可见状态
+ */
+/* 亮色主题可见 */
+.doc-visible-light-theme {
+  display: block;
+}
+.mdui-theme-layout-dark .doc-visible-light-theme {
+  display: none;
+}
+.doc-visible-dark-theme {
+  display: none;
+}
+.mdui-theme-layout-dark .doc-visible-dark-theme {
+  display: block;
+}

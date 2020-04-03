@@ -1,0 +1,107 @@
+﻿/*
+
+Railscasts-like style (c) Visoft, Inc. (Damien White)
+
+*/
+
+.mdui-theme-layout-dark .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  /*background: #232323;*/
+  background: #303030;
+  color: #e6e1dc;
+}
+
+.mdui-theme-layout-dark .hljs-comment,
+.mdui-theme-layout-dark .hljs-quote {
+  color: #bc9458;
+  font-style: italic;
+}
+
+.mdui-theme-layout-dark .hljs-keyword,
+.mdui-theme-layout-dark .hljs-selector-tag {
+  color: #c26230;
+}
+
+.mdui-theme-layout-dark .hljs-string,
+.mdui-theme-layout-dark .hljs-number,
+.mdui-theme-layout-dark .hljs-regexp,
+.mdui-theme-layout-dark .hljs-variable,
+.mdui-theme-layout-dark .hljs-template-variable {
+  color: #a5c261;
+}
+
+.mdui-theme-layout-dark .hljs-subst {
+  color: #519f50;
+}
+
+.mdui-theme-layout-dark .hljs-tag,
+.mdui-theme-layout-dark .hljs-name {
+  color: #e8bf6a;
+}
+
+.mdui-theme-layout-dark .hljs-type {
+  color: #da4939;
+}
+
+
+.mdui-theme-layout-dark .hljs-symbol,
+.mdui-theme-layout-dark .hljs-bullet,
+.mdui-theme-layout-dark .hljs-built_in,
+.mdui-theme-layout-dark .hljs-builtin-name,
+.mdui-theme-layout-dark .hljs-attr,
+.mdui-theme-layout-dark .hljs-link {
+  color: #6d9cbe;
+}
+
+.mdui-theme-layout-dark .hljs-params {
+  color: #d0d0ff;
+}
+
+.mdui-theme-layout-dark .hljs-attribute {
+  color: #cda869;
+}
+
+.mdui-theme-layout-dark .hljs-meta {
+  color: #9b859d;
+}
+
+.mdui-theme-layout-dark .hljs-title,
+.mdui-theme-layout-dark .hljs-section {
+  color: #ffc66d;
+}
+
+.mdui-theme-layout-dark .hljs-addition {
+  background-color: #144212;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.mdui-theme-layout-dark .hljs-deletion {
+  background-color: #600;
+  color: #e6e1dc;
+  display: inline-block;
+  width: 100%;
+}
+
+.mdui-theme-layout-dark .hljs-selector-class {
+  color: #9b703f;
+}
+
+.mdui-theme-layout-dark .hljs-selector-id {
+  color: #8b98ab;
+}
+
+.mdui-theme-layout-dark .hljs-emphasis {
+  font-style: italic;
+}
+
+.mdui-theme-layout-dark .hljs-strong {
+  font-weight: bold;
+}
+
+.mdui-theme-layout-dark .hljs-link {
+  text-decoration: underline;
+}
