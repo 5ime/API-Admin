@@ -5,6 +5,7 @@
 
 默认账号密码均为`123456` 如需添加API 请将API放入`api`目录
 
+API文档参考地址：https://tenapi.cn/doc
 
 # 预览图
 ## 首页
