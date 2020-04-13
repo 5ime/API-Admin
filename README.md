@@ -3,11 +3,11 @@
 
 `Nginx`请自行设置`伪静态` 运行目录`默认`即可
 
-将`api.sql`导入数据库,修改`application/database.php`数据库配置文件即可
+将程序上传至网站根目录,访问`域名/install`进行安装操作
 
-默认账号密码均为`123456` 如需添加API 请将API放入`api`目录
+默认账号密码为`admin` `123456` 如需添加API 请将API放入`api`目录
 
-API文档参考地址：https://tenapi.cn/doc
+添加API请参考：https://tenapi.cn/doc
 
 # 预览图
 ## 首页
