@@ -19,3 +19,4 @@ function jmpwd($p,$str='xinxinhaimian'){
 	$str="###".md5(md5($p.$str));
 	return $str;
 }
+

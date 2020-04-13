@@ -10,4 +10,3 @@
 // +----------------------------------------------------------------------
 use think\Route;
 Route::rule('doc/:id','index/doc');
-Route::rule('api/:id','index/doc');

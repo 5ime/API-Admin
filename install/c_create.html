@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开始安装 - 数据库信息</title>
+    <link href="./css/material-dashboard.min.css?v=2.1.1" rel="stylesheet">
+    <meta data-n-head="1" data-hid="viewport" name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="progress">
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #9c27b0" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #ff9800" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #f44336" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+
+    <div class="card card-nav-tabs text-center" style="width: 50%;/* margin-top: 30%; */margin: 10% auto;">
+        <div class="card-header card-header-primary" style="padding-top: 4px;padding-bottom: 10px;">
+        <a href="#" class="badge badge-success"><?php echo $config['version']?></a>
+        <br>数据库信息
+    </div>
+    <div class="card-body">
+        <form class="layui-form" action="index.php?type=d_success" method="post">
+            <div class="form-group bmd-form-group">
+                <input type="text" class="form-control" autocomplete="off" value="127.0.0.1" name="DB_HOST" aria-describedby="emailHelp" style="text-align: center;" placeholder="数据库地址">
+            </div>
+            <div class="form-group bmd-form-group">
+                <input type="text" class="form-control" autocomplete="off" value="3306" name="DB_PORT" style="text-align: center;" placeholder="数据库端口">
+            </div>
+            <div class="form-group bmd-form-group">
+                <input type="text" class="form-control" autocomplete="off" value="api_" name="DB_PREFIX" style="text-align: center;" placeholder="数据库表前缀">
+            </div>
+            <div class="form-group bmd-form-group">
+                <input type="text" class="form-control" autocomplete="off" name="DB_NAME" style="text-align: center;" placeholder="数据库名">
+            </div>
+            <div class="form-group bmd-form-group">
+                <input type="text" class="form-control" autocomplete="off" name="DB_USER" style="text-align: center;" placeholder="数据库用户名">
+            </div>
+            <div class="form-group bmd-form-group">
+                <input type="password" class="form-control" autocomplete="off" name="DB_PWD" style="text-align: center;" placeholder="数据库密码">
+            </div>
+            <a href="./index.php?type=<?php echo $config['checkPage']?>" class="btn btn-primary btn-pro-component">上一步<div class="ripple-container"></div></a>
+            <button type="submit" class="btn btn-primary btn-pro-component" lay-submit >下一步</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 <?php
-
-	error_reporting(E_ALL || ~E_NOTICE);     //禁止显示PHP错误信息
+error_reporting(E_ALL || ~E_NOTICE);     //禁止显示PHP错误信息
 	$qq=$_GET['qq'];     //获取URL参数
 	if($qq==''){
 	}

@@ -1,0 +1,36 @@
+.layui-main{
+    width: 1024px;
+    margin: 10px auto;
+}
+.layui-main .site-h1{
+    margin-bottom: 20px;
+    line-height: 60px;
+    padding-bottom: 10px;
+    color: #393D49;
+    border-bottom: 1px solid #eee;
+    font-size: 28px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.layui-elem-quote{
+    margin-bottom: 20px;
+}
+.layui-elem-quote h1{
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+.btn-box{
+    text-align: center;
+}
+.version{
+    color: #555;
+    font-size: 12px;
+    margin-left: 10px;
+}
+@media screen and(max-width: 1024px){
+    .layui-main{
+        width: 100%;
+    }
+}

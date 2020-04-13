@@ -7,9 +7,6 @@
 	  API登录
 	</title>
 	<meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
-	<!--     Fonts and icons     -->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<!-- CSS Files -->
 	<link href="/public/static/admin/css/material-dashboard.css?v=2.1.2" rel="stylesheet">
 	<!-- CSS Just for demo purpose, don't include it in your project -->
@@ -19,7 +16,7 @@
 <body class="offline-doc">
   <!-- End Navbar -->
   <div class="page-header clear-filter">
-    <div class="page-header-image" style="background-image: url('https://tenapi.cn/img/acg.php');"></div>
+    <div class="page-header-image"  style="background-image: url('https://tenapi.cn/img/acg.php');"></div>
     <div class="content-center">
       <div class="col-md-8 ml-auto mr-auto">
         <div class="brand">
@@ -33,7 +30,7 @@
 				<div class="col-md-12">
 				  <div class="form-group bmd-form-group">
 					<label>Username</label>
-					<input name="username" type="text" class="form-control">
+					<input name="username" autocomplete="off" type="text" class="form-control" style="color: #fff;text-align: center;">
 				  </div>
 				</div>
 			  </div>
@@ -42,7 +39,7 @@
 				  <div class="col-md-12">
 					<div class="form-group bmd-form-group">
 					  <label>Password</label>
-					  <input name="password" type="text" class="form-control">
+					  <input name="password" type="password" class="form-control" style="color: #fff;text-align: center;">
 					</div>
 				  </div>
 				</div>  
@@ -87,8 +84,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <!-- Library for adding dinamically elements -->
   <script src="/public/static/admin/js/plugins/arrive.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <!-- Chartist JS -->
   <script src="/public/static/admin/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->

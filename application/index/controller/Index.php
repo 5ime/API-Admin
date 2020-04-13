@@ -3,11 +3,11 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Db;
+use app\index\model\Cate as CateModel;
 
 class Index extends Controller
 {
     public function index(){
-        
         //信息查询
         $info=Db::name('setup')->find();
         //API查询
