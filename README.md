@@ -23,5 +23,3 @@
 ![7](https://user-images.githubusercontent.com/31686695/78222962-b2e0a680-74f8-11ea-8bba-86fc607818dc.png)
 # 免责声明
 本仓库只为学习研究，如涉及侵犯个人或者团体利益，请与我取得联系，我将主动删除一切相关资料，谢谢！
-# License
-[MIT](https://github.com/5ime/api-admin/blob/master/LICENSE) &copy; [I Am I](https://5ime.cn)
