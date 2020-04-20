@@ -19,6 +19,12 @@ location / {
 
 Bug反馈请提交`Issues`或前往博客留言https://5ime.cn/api-admin.html
 
+# 更新日志
+- 2020-4-1 提交API-Admin beta版
+- 2020-4-13 新增10个API/新增安装页面/优化部分代码
+- 2020-4-20 修复移动端菜单栏不显示/优化部分代码
+
+
 # 预览图
 ## 首页
 ![1](https://user-images.githubusercontent.com/31686695/78222960-b2481000-74f8-11ea-8abb-c033dcbe65f9.png)
