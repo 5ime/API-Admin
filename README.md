@@ -1,13 +1,23 @@
 # 食用方法
-此程序基于ThinkPHP5.0 PHP版本需`7.0`+
 
-`Nginx`请自行设置`伪静态` 运行目录`默认`即可
+此程序基于ThinkPHP5.0 PHP版本需`≥7.0`
+
+`Nginx`请设置如下`伪静态` `Apache`无需配置 运行目录`默认`即可
+```
+location / {
+	if (!-e $request_filename){
+		rewrite  ^(.*)$  /index.php?s=$1  last;   break;
+	}
+}
+```
 
 将程序上传至网站根目录,访问`域名/install`进行安装操作
 
 默认账号密码为`admin` `123456` 如需添加API 请将API放入`api`目录
 
-添加API请参考：https://tenapi.cn/doc
+新增API文档编写请参考：https://tenapi.cn/doc
+
+Bug反馈请提交`Issues`或前往博客留言https://5ime.cn/api-admin.html
 
 # 预览图
 ## 首页
