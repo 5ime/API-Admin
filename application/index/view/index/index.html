@@ -8,31 +8,32 @@
 	<title>{$info.title}</title>
     <meta name="description" content="{$info.description}">
     <meta name="keywords" content="{$info.keywords}">
-
-	<link rel="stylesheet" type="text/css" href="public/static/index/css/h.css">
-	<link rel="stylesheet" type="text/css" href="public/static/index/css/nekotora.css">
-	<script src="public/static/index/js/jquery-1.9.1.min.js"></script>
-	<script src="public/static/index/js/page.js"></script>
+	<link rel="stylesheet" type="text/css" href="public/static/index/css/flaghome.css">
 </head>
 <body>
+
 <div class="background">
+	<canvas id="startrack"></canvas>
+	<div class="cover">
+	</div>
 </div>
 <div class="main">
 	<div class="ch intro">
-		<div class="el">
-			<span></span><span></span><span></span><span></span>
-		</div>
+		<div class="container">
 			<div class="hello">
 				<h1 id="slogan">思考中……</h1>
-				<h2><div class="circle">
-					<span></span>
-					<span></span>
-					<span></span>
-				</div>{$info.title}免费提供Api服务</h2>
+				<h2>
+				<div class="circle">
+					<span></span><span></span><span></span>
+				</div>
+				{$info.title}免费提供Api服务
+				</h2>
 			</div>
+		</div>
 	</div>
-	<div class="find ch">
-		<div class="container links">
+</div>
+<div class="find ch">
+	<div class="container links">
 			<h2 class="chtitle"><span>API列表</span></h2>
 			<div class="clear">
 				{volist name="api" id='api'}
@@ -55,6 +56,8 @@
 		</div>
 	</div>
 </div>
+<script src="public/static/index/js/jquery-1.9.1.min.js"></script>
+<script src="public/static/index/js/page.js"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {
@@ -64,6 +67,5 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
-
 </body>
 </html>
