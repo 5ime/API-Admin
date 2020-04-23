@@ -1,34 +1,30 @@
 <?php
 namespace app\admin\controller;
-
 use think\Controller;
 use think\Db;
 use think\Session;
 use think\Request; 
 class Index extends Controller
 {
-	//判断是否登录
     public function _initialize()
     {
-      //判断有无admin_username这个session，如果没有，跳转到登陆界面
       if(!session('USER_INFO_ID')){
         return $this->error('您没有登陆',url('Login/index'));
       }
     }
-    //退出登录
     public function logout()
     {
-        $_SESSION = array();  //清除 SESSION 的值
-        if(isset($_COOKIE[session_name()])){  //判断客户端的 cookie 文件是否存在，如果存在将其设置为过期
+        $_SESSION = array();
+        if(isset($_COOKIE[session_name()])){
             setcookie(session_name(),'',time()-1);
         }
-        session_destroy();  //清除服务器的 session 文件
-        $this->success('您已退出登录，请重新登录','/');//返回首页
+        session_destroy();
+        $this->success('您已退出登录，请重新登录','/');
     }
 
     public function index()
     {
-    $apicount=Db::name('info')->count();//获取api总数
+    $apicount=Db::name('info')->count();
       return view('index', [
         'count' => $apicount,
     ]);  
@@ -48,7 +44,6 @@ class Index extends Controller
             $data['username']=input('post.username');
             $data['password']=jmpwd(input('post.password'));
         }
-        //修改的方法是update
         $uid=(int)input('post.uid');
         $re = Db::name('user')->where('id',$uid)->update($data);
         if ($re) {
@@ -57,7 +52,6 @@ class Index extends Controller
             $this->error("修改信息失败");
         }
     }
-    //添加api
     public function add()
     {
      return $this->fetch();
@@ -82,7 +76,6 @@ class Index extends Controller
             $this->error("添加失败");
         }
     }
-    //获取api列表
     public function list()
     {
         $api=Db::name('info')->select(); 
@@ -90,8 +83,6 @@ class Index extends Controller
             'api' => $api,
                 ]);  
     }
-
-    //修改api
     public function edit()
     {
         $id=(int)input('get.id');
@@ -125,8 +116,6 @@ class Index extends Controller
             $this->error("修改API失败");
         }
     }
-
-    //删除api
     public function apidel()
     {
         $uid=(int)input('get.id');
@@ -137,7 +126,6 @@ class Index extends Controller
             $this->error("删除失败,请确认API是否存在");
         }
     }
-    //站点设置
     public function site()
     {
         $api=Db::name('setup')->select(); 
@@ -152,7 +140,6 @@ class Index extends Controller
         $data['description']=input('post.description');
         $data['keywords']=input('post.keyword');
         $data['baidutongji']=input('post.baidutongji');
-        //修改的方法是update
         $re = Db::name('setup')->where('id',1)->update($data);
         if ($re) {
             $this->success("修改信息成功");
@@ -160,10 +147,5 @@ class Index extends Controller
             $this->error("修改信息失败");
         }
     }
-
-
-
-
-
 }
 ?>
