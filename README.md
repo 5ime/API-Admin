@@ -15,16 +15,17 @@ location / {
 
 默认账号密码为`admin` `123456` 如需添加API 请将API放入`api`目录
 
-新增API文档编写请参考：https://tenapi.cn/doc
+新增API文档编写请参考：https://tenapi.cn/doc QQ交流群：546609030
 
 Bug反馈请提交`Issues`或前往博客留言https://5ime.cn/api-admin.html
 
 # 更新日志
-- 2020-4-1 提交API-Admin beta版
-- 2020-4-13 新增10个API/新增安装页面/优化部分代码
+- 2020-4-1 提交API-Admin beta版 新增随机动漫图API
+- 2020-4-7 新增抖音无水印解析API,IP签名图API,免KEY加群API
+- 2020-4-15 新增安装页面/优化部分代码 新增ICO获取API,网站icp备案查询API,历史上的今天API,QQ头像获取API,QQ在线状态查询APi,服务器信息获取API,网站标题获取API,爱站权重获取API,城市天气获取APi,随机一言API
 - 2020-4-20 修复移动端菜单栏不显示/优化部分代码
 - 2020-4-22 更新首页样式
-
+- 2020-4-23 新增皮皮虾无水印解析API，每日Bing获取API,QQ短网址获取API,垃圾分类查询API,手机号归属地查询API,顺通快递查询API
 
 # 预览图
 ## 首页
