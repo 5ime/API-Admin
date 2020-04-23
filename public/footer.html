@@ -45,6 +45,9 @@
     $(function() {
         var editor = editormd("test-editor", {
             width  : "100%",
+            toolbarIcons : function() { 
+              return editormd.toolbarModes['mini']; // full, simple, mini
+            },
             height : 440,
             path   : "/public/editormd/lib/",
             htmlDecode : true,
