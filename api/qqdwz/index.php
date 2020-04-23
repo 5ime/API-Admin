@@ -1,4 +1,5 @@
 <?php
+/*蓝优 4.23*/
 header("Access-Control-Allow-Origin:*");
 header('Content-type: application/json');
 !empty($_REQUEST['url']) ? $url = $_REQUEST['url'] : exit(json_encode([
