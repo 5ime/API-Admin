@@ -15,7 +15,7 @@ location / {
 
 默认账号密码为`admin` `123456` 如需添加API 请将API放入`api`目录
 
-**新增的API文档编写请参考：https://tenapi.cn/doc/ ** QQ交流群：546609030
+**新增的API文档编写请参考：https://tenapi.cn/doc/** 
 
 Bug反馈请提交`Issues`或前往博客留言https://5ime.cn/api-admin.html
 
