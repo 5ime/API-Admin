@@ -15,7 +15,7 @@ return [
     // +----------------------------------------------------------------------
 
     // 应用调试模式
-    'app_debug'              => true,
+    'app_debug'              => false,
     // 应用Trace
     'app_trace'              => false,
     // 应用模式状态
@@ -239,5 +239,11 @@ return [
         'type'      => 'bootstrap',
         'var_page'  => 'page',
         'list_rows' => 15,
+    ],
+    'http_exception_template' => [
+        // 定义404错误的重定向页面地址
+        404 => APP_PATH.'404.html',
+        // 还可以定义其它的HTTP status
+        401 => APP_PATH.'401.html',
     ],
 ];
