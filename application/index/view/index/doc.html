@@ -83,7 +83,7 @@
 		</div>
 		<div class="mdui-typo">
 			<p id="1">
-				请求地址：<code>{$api.url}</code>
+				请求地址：<a><code id="URL" onclick="myCopyFunction()">{$info.url}{$api.url}</code></a>
 			</p>
 			<p id="2">
 				返回数据：<code>{$api.request}</code>
@@ -410,6 +410,18 @@
 	  var s = document.getElementsByTagName("script")[0]; 
 	  s.parentNode.insertBefore(hm, s);
 	})();
+	</script>
+	<script>
+		function myCopyFunction() {
+		  var myText = document.createElement("textarea")
+		  myText.value = document.getElementById("URL").innerHTML;
+		  document.body.appendChild(myText)
+		  myText.focus();
+		  myText.select();
+		  document.execCommand('copy');
+		  document.body.removeChild(myText);
+		  mdui.snackbar("链接已复制");
+		}
 	</script>
 <script src="/public/static/doc/js/smooth-scroll.min.js"></script>
 <script src="/public/static/doc/js/holder.min.js"></script>
