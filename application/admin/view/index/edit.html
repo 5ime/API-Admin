@@ -13,12 +13,7 @@
                   {volist name="api" id='api'}
                       <form action="{:url('index/upedit')}" method="post">
                         <div class="row">
-                          <div class="col-md-1">
-                            <div class="form-group">
-                              <label class="bmd-label-floating">ID请勿修改</label>
-                              <input type="text" value="{$api.id}" name="id" class="form-control">
-                            </div>
-                          </div>
+                          <input  style="display:none" type="text" value="{$api.id}" name="id" class="form-control">
                           <div class="col-md-2">
                             <div class="form-group">
                               <label class="bmd-label-floating">API名称 提示:保持在六个字内</label>
