@@ -68,6 +68,7 @@ class Index extends Controller
         $data['url']=input('post.apipost');
         $data['request']=input('post.apiposts');
         $data['icon']=input('post.apiicon');
+        $data['type']=input('post.type');
         $data['time']=time();
         $re = Db::name('info')->insert($data);
         if ($re) {
@@ -100,7 +101,7 @@ class Index extends Controller
         $data['doc']=input('post.apidoc');
         $data['miaoshu']=input('post.miaoshu');
         $data['demo']=input('post.diaoyong');
-        $data['democode']=$value;//input('post.diaoyong');
+        $data['democode']=$value;
         $data['url']=input('post.apipost');
         $data['request']=input('post.apiposts');
         $data['type']=input('post.type');
