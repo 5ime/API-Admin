@@ -1,6 +1,6 @@
-<?php
+  <?php
 /**
- * @package lanzou
+ * @package Lanzou
  * @author iami233
  * @version 1.0.0
  * @link http://github.com/5ime/Lanzou_api
@@ -38,8 +38,8 @@ return $Json;
         preg_match_all("/<div class=\"md\">(.*?)<span class=\"mtt\">/", $lanzouo, $name);
         preg_match_all('/时间:<\\/span>(.*?)<span class=\\"mt2\\">/', $lanzouo, $time);
         preg_match_all('/发布者:<\\/span>(.*?)<span class=\\"mt2\\">/', $lanzouo, $author);
-        preg_match_all('/var domianloads = \'(.*?)\';/', $lanzouo, $down1);
-        preg_match_all('/var urlload = \'(.*?)\';/', $lanzouo, $down2);
+        preg_match_all('/var domianload = \'(.*?)\';/', $lanzouo, $down1);
+        preg_match_all('/domianload \+ \'(.*?)\'/', $lanzouo, $down2);
         preg_match_all('/<div class=\\"md\\">(.*?)<span class=\\"mtt\\">\\((.*?)\\)<\\/span><\\/div>/', $lanzouo, $size);
         $download = getRedirect($down1[1][0] . $down2[1][0]);
         $Json = array(
