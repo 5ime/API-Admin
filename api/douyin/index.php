@@ -1,18 +1,19 @@
 <?php
-header('Access-Control-Allow-Origin:*');
-$url = $_GET['url'];
+$url = @$_GET['url'];
 if ($url != null) {
-$res = curl($url);
-preg_match('/href="(.*?)">Found/', $res, $matches);
-preg_match('/itemId: "(.*?)",/', curl(str_replace('&', '&', $matches[1])), $matches);
-//var_dump($matches);
-$arr = json_decode(curl('https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids='. $matches[1]), true);
+$loc = get_headers($url, true)["location"];
+$b = 'video/';
+$c = '/?region';
+$id = GetBetween($loc,$b,$c);
+
+$arr = json_decode(curl('https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids='.$id), true);
+//var_dump($arr);
 preg_match('/href="(.*?)">Found/', curl(str_replace('playwm', 'play', $arr['item_list'][0]["video"]["play_addr"]["url_list"][0])), $matches);
 $videourl = str_replace('&', '&', $matches[1]);
 $Json = array(
-	'title' => $arr['item_list'][0]["share_info"]["share_title"],
-	'cover' => $arr['item_list'][0]['video']["cover"]["url_list"][0],
-	'url' => $videourl, 
+    'title' => $arr['item_list'][0]["share_info"]["share_title"],
+    'cover' => $arr['item_list'][0]['video']["origin_cover"]["url_list"][0],
+    'url' => $videourl, 
 );
 $Json = json_encode($Json,JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE);
 echo stripslashes($Json);
@@ -20,6 +21,14 @@ return $Json;
 }
 else{
 echo '请输入抖音分享的地址，如：https://v.douyin.com/m2mun2';
+}
+function GetBetween($content,$start,$end) {
+    $r = explode($start, $content);
+    if (isset($r[1])) {
+    $r = explode($end, $r[1]);
+    return $r[0];
+    }
+    return '';
 }
 function curl($url)
 {
