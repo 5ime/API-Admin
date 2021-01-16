@@ -3,7 +3,7 @@ $url = @$_GET['url'];
 if ($url != null) {
 $loc = get_headers($url, true)["location"];
 $b = 'video/';
-$c = '/?region';
+$c = '/?';
 $id = GetBetween($loc,$b,$c);
 
 $arr = json_decode(curl('https://www.iesdouyin.com/web/api/v2/aweme/iteminfo/?item_ids='.$id), true);
