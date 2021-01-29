@@ -6,7 +6,7 @@ header('Content-type:text/html;charset=utf-8');
 
 // 配置页面
 $config = [
-    'version'       => 'V1.0',    // 版本
+    'version'       => 'V1.2',    // 版本
 
     'indexPage'     => 'a_welcome',             // 首页
     'checkPage'     => 'b_check',               // 检查页
