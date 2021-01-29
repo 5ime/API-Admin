@@ -166,15 +166,27 @@ md = {
 
   showNotification: function(from, align) {
     type = ['', 'info', 'danger', 'success', 'warning', 'rose', 'primary'];
-
-    color = Math.floor((Math.random() * 6) + 1);
-
     $.notify({
       icon: "add_alert",
-      message: "Welcome to <b>Material Dashboard Pro</b> - a beautiful admin panel for every web developer."
+      message: "当前不是最新版本,即将前往Github页面"
 
     }, {
-      type: type[color],
+      type: type[2],
+      timer: 3000,
+      placement: {
+        from: from,
+        align: align
+      }
+    });
+  },
+  showNotifications: function(from, align) {
+    type = ['', 'info', 'danger', 'success', 'warning', 'rose', 'primary'];
+    $.notify({
+      icon: "add_alert",
+      message: "当前版本为最新版本,无需更新"
+
+    }, {
+      type: type[3],
       timer: 3000,
       placement: {
         from: from,
