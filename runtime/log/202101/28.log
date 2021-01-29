@@ -1,0 +1,2419 @@
+---------------------------------------------------------------
+[ 2021-01-28T23:50:38+08:00 ] 127.0.0.1 GET api.la/admin/index/edit.html?id=1
+[运行时间：0.034816s] [吞吐率：28.72req/s] [内存消耗：1,769.55kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/edit_html' => '',
+  'id' => '1',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->edit[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\edit.html [ array (
+  0 => 'api',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000882s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.004116s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `id` = 1 [ RunTime:0.000441s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:50:39+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.048422s] [吞吐率：20.65req/s] [内存消耗：1,870.54kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/edit.html?id=1',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000990s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.006344s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000295s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000389s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:50:40+08:00 ] 127.0.0.1 GET api.la/admin/index/add.html
+[运行时间：0.018746s] [吞吐率：53.35req/s] [内存消耗：1,142.81kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/add_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->add[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\add.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:50:43+08:00 ] 127.0.0.1 GET api.la/admin/index/add.html
+[运行时间：0.020227s] [吞吐率：49.44req/s] [内存消耗：1,142.81kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/add_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->add[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\add.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:50:44+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.044733s] [吞吐率：22.35req/s] [内存消耗：1,870.16kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001023s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.008698s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000309s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000379s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:51:11+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.039560s] [吞吐率：25.28req/s] [内存消耗：1,870.89kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000948s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.006388s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000718s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000345s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:51:12+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.039818s] [吞吐率：25.11req/s] [内存消耗：1,870.33kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000860s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005166s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000265s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000315s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:51:13+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95.
+[运行时间：0.036162s] [吞吐率：27.65req/s] [内存消耗：1,764.88kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '测试.',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000892s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005226s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%测试.%' [ RunTime:0.000436s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:51:16+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95
+[运行时间：0.033662s] [吞吐率：29.71req/s] [内存消耗：1,765.16kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95.',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '测试',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000935s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005407s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%测试%' [ RunTime:0.000411s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:51:18+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95
+[运行时间：0.045582s] [吞吐率：21.94req/s] [内存消耗：1,764.55kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '测试',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001102s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005936s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%测试%' [ RunTime:0.000438s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:51:21+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.042461s] [吞吐率：23.55req/s] [内存消耗：1,768.91kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014156s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.003948s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' [ RunTime:0.000309s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:51:24+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.040279s] [吞吐率：24.83req/s] [内存消耗：1,768.30kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001208s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005803s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' [ RunTime:0.000496s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:52:14+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.048463s] [吞吐率：20.63req/s] [内存消耗：1,805.66kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.014515s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005528s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' LIMIT 1 [ RunTime:0.000374s ]
+[ error ] [2]Illegal string offset 'id'[D:\phpStudy\PHPTutorial\WWW\site\api-admin\runtime\temp\e6728675c6a0e983d15bc7a83f416cc3.php:141]
+---------------------------------------------------------------
+[ 2021-01-28T23:52:15+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.035141s] [吞吐率：28.46req/s] [内存消耗：1,805.66kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000866s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005872s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' LIMIT 1 [ RunTime:0.000406s ]
+[ error ] [2]Illegal string offset 'id'[D:\phpStudy\PHPTutorial\WWW\site\api-admin\runtime\temp\e6728675c6a0e983d15bc7a83f416cc3.php:141]
+---------------------------------------------------------------
+[ 2021-01-28T23:52:16+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.033134s] [吞吐率：30.18req/s] [内存消耗：1,805.66kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000971s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.006359s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' LIMIT 1 [ RunTime:0.000385s ]
+[ error ] [2]Illegal string offset 'id'[D:\phpStudy\PHPTutorial\WWW\site\api-admin\runtime\temp\e6728675c6a0e983d15bc7a83f416cc3.php:141]
+---------------------------------------------------------------
+[ 2021-01-28T23:52:18+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.035353s] [吞吐率：28.29req/s] [内存消耗：1,805.66kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000813s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005822s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' LIMIT 1 [ RunTime:0.000407s ]
+[ error ] [2]Illegal string offset 'id'[D:\phpStudy\PHPTutorial\WWW\site\api-admin\runtime\temp\e6728675c6a0e983d15bc7a83f416cc3.php:141]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:01+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.065659s] [吞吐率：15.23req/s] [内存消耗：1,739.37kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.024959s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005591s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' [ RunTime:0.000512s ]
+[ error ] [0]致命错误: Call to a member function count() on array[D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php:155]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:15+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.046787s] [吞吐率：21.37req/s] [内存消耗：1,768.98kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.017154s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005753s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' [ RunTime:0.000424s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:20+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.054533s] [吞吐率：18.34req/s] [内存消耗：1,768.80kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.021493s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.007029s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' [ RunTime:0.000402s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:22+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.052961s] [吞吐率：18.88req/s] [内存消耗：1,768.80kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.023851s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005556s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' [ RunTime:0.000362s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:25+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.048545s] [吞吐率：20.60req/s] [内存消耗：1,870.70kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016540s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005900s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000343s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000383s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:25+08:00 ] 127.0.0.1 GET api.la/admin/index/index.html
+[运行时间：0.044133s] [吞吐率：22.66req/s] [内存消耗：1,768.16kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\index.html [ array (
+  0 => 'count',
+  1 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000788s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005922s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000178s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_user` [ RunTime:0.003687s ]
+[ sql ] [ SQL ] SELECT * FROM `api_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000283s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:26+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.061845s] [吞吐率：16.17req/s] [内存消耗：1,870.16kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.024881s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005018s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000291s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000377s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:28+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=sc+
+[运行时间：0.048431s] [吞吐率：20.65req/s] [内存消耗：1,764.67kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => 'sc ',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.011078s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.007816s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%sc %' [ RunTime:0.000421s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:32+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%87%8D%E6%96%B0%E6%89%AB
+[运行时间：0.035400s] [吞吐率：28.25req/s] [内存消耗：1,764.98kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=sc+',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '重新扫',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000907s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005372s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%重新扫%' [ RunTime:0.000481s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:33+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95
+[运行时间：0.032027s] [吞吐率：31.22req/s] [内存消耗：1,764.99kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E9%87%8D%E6%96%B0%E6%89%AB',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '测试',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001122s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.004647s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%测试%' [ RunTime:0.000400s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:58+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95
+[运行时间：0.050380s] [吞吐率：19.85req/s] [内存消耗：1,765.06kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E9%87%8D%E6%96%B0%E6%89%AB',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '测试',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.016496s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005627s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%测试%' [ RunTime:0.000414s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:53:59+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95
+[运行时间：0.047785s] [吞吐率：20.93req/s] [内存消耗：1,765.06kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E9%87%8D%E6%96%B0%E6%89%AB',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '测试',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012046s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.006360s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%测试%' [ RunTime:0.000350s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:54:28+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95
+[运行时间：0.035969s] [吞吐率：27.80req/s] [内存消耗：1,765.05kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E9%87%8D%E6%96%B0%E6%89%AB',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '测试',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000914s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.006618s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%测试%' [ RunTime:0.001402s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:54:29+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.057408s] [吞吐率：17.42req/s] [内存消耗：1,870.70kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=%E6%B5%8B%E8%AF%95',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.023635s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005810s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000190s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000323s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:54:30+08:00 ] 127.0.0.1 GET api.la/admin/index/add.html
+[运行时间：0.019100s] [吞吐率：52.36req/s] [内存消耗：1,142.81kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/add_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->add[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\add.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:54:32+08:00 ] 127.0.0.1 GET api.la/admin/index/site.html
+[运行时间：0.056434s] [吞吐率：17.72req/s] [内存消耗：1,761.73kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'site',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/site_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->site[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\site.html [ array (
+  0 => 'api',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.024453s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_setup` [ RunTime:0.007195s ]
+[ sql ] [ SQL ] SELECT * FROM `api_setup` [ RunTime:0.000365s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:54:35+08:00 ] 127.0.0.1 GET api.la/admin/index/logout.html
+[运行时间：0.022009s] [吞吐率：45.44req/s] [内存消耗：1,087.00kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/site.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/logout_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->logout[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:54:36+08:00 ] 127.0.0.1 GET api.la/
+[运行时间：0.037066s] [吞吐率：26.98req/s] [内存消耗：1,717.65kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611843121',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/logout.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\index\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/index\view\index\index.html [ array (
+  0 => 'info',
+  1 => 'api',
+  2 => 'count',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001863s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_setup` [ RunTime:0.005412s ]
+[ sql ] [ SQL ] SELECT * FROM `api_setup` LIMIT 1 [ RunTime:0.000276s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.003972s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` [ RunTime:0.000341s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000233s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:54:38+08:00 ] 127.0.0.1 GET api.la/admin/index/logout.html
+[运行时间：0.025089s] [吞吐率：39.86req/s] [内存消耗：1,132.45kb] [文件加载：35]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'logout',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/site.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/logout_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:54:41+08:00 ] 127.0.0.1 GET api.la/admin/admin
+[运行时间：0.017368s] [吞吐率：57.58req/s] [内存消耗：827.99kb] [文件加载：29]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'admin',
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/admin' => '',
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:54:44+08:00 ] 127.0.0.1 GET api.la/admin/
+[运行时间：0.021720s] [吞吐率：46.04req/s] [内存消耗：1,132.20kb] [文件加载：35]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:54:45+08:00 ] 127.0.0.1 GET api.la/admin/login/index.html
+[运行时间：0.018123s] [吞吐率：55.18req/s] [内存消耗：1,126.54kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/index_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Login.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:54:51+08:00 ] 127.0.0.1 POST api.la/admin/login/fromlogin.html
+[运行时间：0.058320s] [吞吐率：17.15req/s] [内存消耗：1,698.19kb] [文件加载：41]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'fromlogin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://api.la',
+  'cache-control' => 'max-age=0',
+  'content-length' => '36',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/fromlogin_html' => '',
+  'username' => 'iami233',
+  'password' => 'mimashi123',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Login->fromlogin[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012154s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_user` [ RunTime:0.005658s ]
+[ sql ] [ SQL ] SELECT * FROM `api_user` WHERE  `username` = 'iami233'  AND `password` = '###c50ac1aec3cffb4d1b8bc1002e419ed2' LIMIT 1 [ RunTime:0.000332s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:54:53+08:00 ] 127.0.0.1 GET api.la/admin/login/index.html
+[运行时间：0.020255s] [吞吐率：49.37req/s] [内存消耗：1,126.54kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'dnt' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/index_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Login->index[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Login.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\login\index.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:54:58+08:00 ] 127.0.0.1 POST api.la/admin/login/fromlogin.html
+[运行时间：0.053606s] [吞吐率：18.65req/s] [内存消耗：1,744.73kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'login',
+    2 => 'fromlogin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/login/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'content-type' => 'application/x-www-form-urlencoded',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'origin' => 'http://api.la',
+  'cache-control' => 'max-age=0',
+  'content-length' => '32',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/login/fromlogin_html' => '',
+  'username' => 'iami233',
+  'password' => '123456',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Login->fromlogin[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Login.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\tpl\dispatch_jump.tpl [ array (
+  0 => 'code',
+  1 => 'msg',
+  2 => 'data',
+  3 => 'url',
+  4 => 'wait',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.022759s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_user` [ RunTime:0.006112s ]
+[ sql ] [ SQL ] SELECT * FROM `api_user` WHERE  `username` = 'iami233'  AND `password` = '###10966c0db3c86d0f098001f2093627d7' LIMIT 1 [ RunTime:0.000346s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:55:00+08:00 ] 127.0.0.1 GET api.la/admin/index/index.html
+[运行时间：0.044539s] [吞吐率：22.45req/s] [内存消耗：1,768.29kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/login/fromlogin.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\index.html [ array (
+  0 => 'count',
+  1 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000973s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.007514s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000248s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_user` [ RunTime:0.003762s ]
+[ sql ] [ SQL ] SELECT * FROM `api_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000299s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:55:01+08:00 ] 127.0.0.1 GET api.la/admin/index/site.html
+[运行时间：0.031202s] [吞吐率：32.05req/s] [内存消耗：1,761.73kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'site',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/site_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->site[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\site.html [ array (
+  0 => 'api',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001831s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_setup` [ RunTime:0.005496s ]
+[ sql ] [ SQL ] SELECT * FROM `api_setup` [ RunTime:0.000290s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:55:02+08:00 ] 127.0.0.1 GET api.la/admin/index/add.html
+[运行时间：0.025043s] [吞吐率：39.93req/s] [内存消耗：1,142.81kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/site.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/add_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->add[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\add.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:55:02+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.045604s] [吞吐率：21.93req/s] [内存消耗：1,870.16kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000786s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005577s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000222s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000290s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:55:05+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html?page=2
+[运行时间：0.054847s] [吞吐率：18.23req/s] [内存消耗：1,871.17kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+  'page' => '2',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.024516s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.003683s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000231s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 10,10 [ RunTime:0.000304s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:55:07+08:00 ] 127.0.0.1 GET api.la/admin/index/edit.html?id=12
+[运行时间：0.031862s] [吞吐率：31.39req/s] [内存消耗：1,770.38kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'edit',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html?page=2',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/edit_html' => '',
+  'id' => '12',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->edit[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\edit.html [ array (
+  0 => 'api',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000953s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005839s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `id` = 12 [ RunTime:0.000395s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:55:08+08:00 ] 127.0.0.1 GET api.la/admin/index/add.html
+[运行时间：0.021092s] [吞吐率：47.41req/s] [内存消耗：1,142.95kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/edit.html?id=12',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/add_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->add[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\add.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:55:09+08:00 ] 127.0.0.1 GET api.la/admin/index/list.html
+[运行时间：0.038739s] [吞吐率：25.81req/s] [内存消耗：1,870.16kb] [文件加载：46]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'list',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/list_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->list[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\list.html [ array (
+  0 => 'api',
+  1 => 'page',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000959s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.005407s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000205s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` LIMIT 0,10 [ RunTime:0.000270s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:55:57+08:00 ] 127.0.0.1 GET api.la/admin/index/add.html
+[运行时间：0.019262s] [吞吐率：51.92req/s] [内存消耗：1,142.81kb] [文件加载：34]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'add',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/list.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/add_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->add[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\add.html [ array (
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2021-01-28T23:55:58+08:00 ] 127.0.0.1 GET api.la/admin/index/site.html
+[运行时间：0.046717s] [吞吐率：21.41req/s] [内存消耗：1,761.73kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'site',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/add.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/site_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->site[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\site.html [ array (
+  0 => 'api',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000915s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_setup` [ RunTime:0.005894s ]
+[ sql ] [ SQL ] SELECT * FROM `api_setup` [ RunTime:0.000208s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:56:04+08:00 ] 127.0.0.1 GET api.la/admin/index/index.html
+[运行时间：0.044286s] [吞吐率：22.58req/s] [内存消耗：1,768.16kb] [文件加载：43]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/site.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/index_html' => '',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\index.html [ array (
+  0 => 'count',
+  1 => 'userinfo',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000830s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.004993s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `api_info` LIMIT 1 [ RunTime:0.000292s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_user` [ RunTime:0.005189s ]
+[ sql ] [ SQL ] SELECT * FROM `api_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000290s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:56:15+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=cs+
+[运行时间：0.030424s] [吞吐率：32.87req/s] [内存消耗：1,764.67kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => 'cs ',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.000986s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.004933s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%cs %' [ RunTime:0.000405s ]
+---------------------------------------------------------------
+[ 2021-01-28T23:56:23+08:00 ] 127.0.0.1 GET api.la/admin/index/search.html?keyword=%E9%9A%8F%E6%9C%BA
+[运行时间：0.042599s] [吞吐率：23.47req/s] [内存消耗：1,768.73kb] [文件加载：42]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'search',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'docs-theme-layout=; Hm_lvt_d3b3b1b968a56124689d1366adeacf8f=1611826204,1611830420; PHPSESSID=4k50jucnot0k7tpjrha8htbv62; Hm_lpvt_d3b3b1b968a56124689d1366adeacf8f=1611849278',
+  'accept-language' => 'zh-CN,zh;q=0.9',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://api.la/admin/index/search.html?keyword=cs+',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36',
+  'dnt' => '1',
+  'upgrade-insecure-requests' => '1',
+  'connection' => 'close',
+  'host' => 'api.la',
+)
+[ info ] [ PARAM ] array (
+  '/admin/index/search_html' => '',
+  'keyword' => '随机',
+)
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->search[ D:\phpStudy\PHPTutorial\WWW\site\api-admin\application\admin\controller\Index.php ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\site\api-admin\public/../application/admin\view\index\search.html [ array (
+  0 => 'api',
+  1 => 'tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.013123s ] mysql:host=127.0.0.1;port=3306;dbname=api;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `api_info` [ RunTime:0.004179s ]
+[ sql ] [ SQL ] SELECT * FROM `api_info` WHERE  `name` LIKE '%随机%' [ RunTime:0.000373s ]

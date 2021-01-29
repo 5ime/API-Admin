@@ -1,0 +1,86 @@
+{include file="public/header.html" /}
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">equalizer</i>
+                  </div>
+                  <p class="card-category">总调用数</p>
+                  <h3 class="card-title">{$num}<small>次</small></h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    每天12点更新&nbsp;<a href="#">点我查看如何设置定时任务</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  <div class="card-icon">
+                    <i class="material-icons">store</i>
+                  </div>
+                  <p class="card-category">总API数</p>
+                  <h3 class="card-title">{$count}<small>个</small></h3>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    Just So So...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-warning">
+                  <h4 class="card-title">管理员信息</h4>
+                </div>
+                <div class="card-body">
+                  <form action="{:url('index/upuser')}" method="post">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">用户名</label>
+                          <input name="username" value="{$userinfo['username']}" type="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">新密码</label>
+                          <input name="password" type="password" class="form-control">
+                        </div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">确认修改</button>
+                    <div class="clearfix"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">帮助信息</h4>
+                </div>
+                <div class="card-body">
+                  <div class="tim-typo">
+                    <p class="text-primary">
+                      <p>添加API教程</p>
+                      <a href="https://github.com/5ime/API-Admin">https://github.com/5ime/API-Admin/wiki</a></p>
+                  </div>
+                  <div class="tim-typo">
+                    <p class="text-info" >
+                      <p>欢迎Star和Issues</p>
+                      <a href="https://github.com/5ime/API-Admin">https://github.com/5ime/API-Admin</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+{include file="public/footer.html" /}

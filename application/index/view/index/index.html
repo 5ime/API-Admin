@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+	<title>{$info.title}</title>
+    <meta name="description" content="{$info.description}">
+    <meta name="keywords" content="{$info.keywords}">
+	<link rel="stylesheet" type="text/css" href="public/static/index/css/flaghome.css">
+</head>
+<body>
+<div class="background">
+	<canvas id="startrack"></canvas>
+	<div class="cover">
+	</div>
+</div>
+<div class="main">
+	<div class="ch intro">
+		<div class="container">
+			<div class="hello">
+				<h1 id="slogan">思考中……</h1>
+				<h2>
+				<div class="circle">
+					<span></span><span></span><span></span>
+				</div>
+				{$info.title}免费提供Api服务
+				</h2>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="find ch">
+	<div class="container links">
+			<h2 class="chtitle"><span>API列表</span></h2>
+			<div class="clear">
+				{volist name="api" id='api'}
+				{if condition="($api.sort == 0) "} 
+				<a href="/doc/{$api.doc}" target="_blank">
+					<div class="item">
+					<div class="bg" style="background-color: #28A9E0"></div>
+					<div class="inner">
+						<span>{$api.name}</span>
+					</div>
+					</div>
+				</a>
+				{/if}
+				{/volist}
+            </div>
+        </div>
+	</div>
+	<div class="footer ch">
+		<div class="container">
+			<p><script type="text/javascript" src="https://tenapi.cn/yiyan/get/"></script></p>
+			<p class="c">Make by <a href="http://flag.Moe"rel="nofollow" target="_blank">flag.Moe</a>|Second revision by <a href="#">{$info.title}</a></p>
+		</div>
+	</div>
+</div>
+<script src="public/static/index/js/jquery-1.9.1.min.js"></script>
+<script src="public/static/index/js/page.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?{$info.baidutongji}";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>
