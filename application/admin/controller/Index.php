@@ -1,235 +1,268 @@
 <?php
 namespace app\admin\controller;
+
+use think\config\driver\Json;
 use think\Controller;
 use think\Db;
-use think\Session;
-use think\Request; 
+use think\facade\Session;
+use think\facade\App;
 
 class Index extends Controller
 {
-    public function _initialize()
+    public function initialize()
     {
-      if(!session('USER_INFO_ID')){
-        return $this->error('您没有登陆',url('Login/index'));
-      }
-    }
-    
-    public function logout()
-    {
-        $_SESSION = array();
-        if(isset($_COOKIE[session_name()])){
-            setcookie(session_name(),'',time()-1);
+        parent::initialize();
+        if (empty(Session::get('adminid')) || empty(Session::get('adminname'))) {
+            return redirect((string) url('login/index'))->send();
         }
-        session_destroy();
-        $this->success('您已退出登录，请重新登录','/');
     }
 
     public function index()
     {
-        $apicount = Db::name('info')->count();
-        $apinum = Db::name('setup')->column('counts');
-        $userinfo = Db::name('user')->where('id',1)->find();
-        return view('index', [
-            'count' => $apicount,
-            'userinfo' => $userinfo,
-            'num' => $apinum[0],
-        ]);  
+        $title = '仪表盘';
+        return $this->fetch('index', [
+            'title' => $title,
+        ]);
     }
-    public function upuser()
+
+    public function logout()
     {
-        if (empty(input('post.password'))) {
-            $this->error("密码禁止为空");
+        Session::delete('adminid');
+        Session::delete('adminname');
+        return returnJsonData(200,'正在退出',null);
+    }
+
+    public function siteUpdate()
+    {
+        $title = '检测更新';
+        $version = file_get_contents('https://tenapi.cn/version');
+        $version = json_decode($version, true);
+        if ($version['version'] > config('app_version')) {
+            return returnJsonData(200,'发现新版本，请更新', $version);
+        } else {
+            return returnJsonData(201,'当前已是最新版本', null);
         }
+    }
+
+    public function setup()
+    {
+        $title = '站点设置';
+        return $this->fetch('setup', ['title' => $title]);
+    }
+
+    function getSetup()
+    {
+        $data = Db::name('setup')->find();
+        return returnJsonData(200, '获取成功', $data);
+    }
+
+    function setSetup()
+    {
+        $data = input('post.');
+        $res = Db::name('setup')->where('id',1)->update($data);
+        if ($res) {
+            return returnJsonData(200, '更新成功', null);
+        } else {
+            return returnJsonData(201, '更新失败', null);
+        }
+    }
+
+    public function getCount()
+    {
+        $info = Db::name('info')->count();
+        $sort = Db::name('sort')->count();
+        $post = Db::name('post')->count();
+        $count = Db::name('info')->sum('count');
+        $data = Db::name('info')->order('count desc')->limit(10)->field('id,name,count')->select();
         $data = [
-            'username' => input('post.username'), 
-            'password' => jmpwd(input('post.password')), 
-        ];
-        $re = Db::name('user')->where('id','1')->update($data);
-        if ($re) {
-            $this->success("修改信息成功");
-        }else{
-            $this->error("修改信息失败");
-        }
-    }
-    public function add()
-    {
-        $data = Db::name('info')->where("sort","1")->select();
-        return view('add', [
-            'sort' => $data,
-        ]);  
-    }
-    public function upadd()
-    {
-        $data = [
-            'name' => input('post.apiname'), 
-            'doc' => input('post.apidoc'), 
-            'miaoshu' => input('post.miaoshu'), 
-            'demo' => input('post.diaoyong'), 
-            'democode' => htmlspecialchars(input('post.democode')),
-            'url' => input('post.apipost'), 
-            'request' => htmlspecialchars(input('post.apiposts')), 
-            'icon' => input('post.apiicon'), 
-            'type' => input('post.type'), 
-            'pid' => input('post.sort'), 
-            'time' => time(), 
-        ];
-        $re = Db::name('info')->insert($data);
-        if ($re) {
-            $this->success("添加成功");
-        }else{
-            $this->error("添加失败");
-        }
-    }
-    public function list()
-    {
-        $api=Db::name('info')->order('id asc')->paginate(10); 
-        $page = $api->render();
-        return view('list', [
-            'api' => $api,
-            'page' => $page,
-                ]);  
-    }
-    public function edit()
-    {
-        $id = $_GET['id'];
-        $api=Db::name('info')->where('id',$id)->select(); 
-        $data = Db::name('info')->where("sort","1")->select();
-        $nbaxd['sort'] = $data;
-        return view('edit', [
-            'api' => $api,
-            'sort' => $data,
-        ]);  
-    }
-    public function upedit()
-    {
-        $data = [
-            'name' => input('post.apiname'), 
-            'doc' => input('post.apidoc'), 
-            'miaoshu' => input('post.miaoshu'), 
-            'demo' => input('post.diaoyong'), 
-            'democode' => htmlspecialchars(input('post.democode')),
-            'url' => input('post.apipost'), 
-            'request' => htmlspecialchars(input('post.apiposts')), 
-            'icon' => input('post.apiicon'), 
-            'type' => input('post.type'), 
-            'time' => time(), 
-        ];
-        $id = (int)input('post.id');
-        $re = Db::name('info')->where('id',$id)->update($data);
-        if ($re) {
-            $this->success("修改API成功");
-        }else{
-            $this->error("修改API失败");
-        }
-    }
-    public function apidel()
-    {
-        $id = $_GET['id'];
-        $re=Db::name('info')->where('id',$id)->delete();
-        if ($re) {
-            $this->success("此API已被删除",url('Index/list'));
-        }else{
-            $this->error("删除失败,请确认API是否存在",url('Index/list'));
-        }
-    }
-    public function site()
-    {
-        $api=Db::name('setup')->select(); 
-        return view('site', [
-            'api' => $api,
-                ]);  
-    }
-    public function upsite()
-    {
-        $data = [
-            'title' => input('post.title'), 
-            'url' => input('post.url'), 
-            'description' => input('post.description'), 
-            'keywords' => input('post.keyword'), 
-            'baidutongji' => htmlspecialchars(input('post.baidutongji')),
-            'code' => input('post.code'), 
-        ];
-        $re = Db::name('setup')->where('id',1)->update($data);
-        if ($re) {
-            $this->success("修改信息成功");
-        }else{
-            $this->error("修改信息失败");
-        }
-    }
-    public function search()
-    {
-        $where_like = ['name','like','%' . $_GET['keyword'] . '%'];
-        $api = Db::name('info')->where($where_like[0],$where_like[1],$where_like[2])->select(); 
-        if($api==null){
-            return view('search', [
-                'api' => '',
-                'tips' => '抱歉，没有符合您查询条件的结果',
-            ]);  
-        }
-        return view('search', [
-            'api' => $api,
-            'tips' => '查询成功',
-        ]);  
-    }
-    public function sort()
-    {
-        $sort = Db::name('info')->where("sort","1")->select();
-        return view('sort', [
+            'info' => $info,
             'sort' => $sort,
-        ]);  
-    }
-    public function adds()
-    {
-        return $this->fetch();
-    }
-    public function upadds()
-    {
-        $data = [
-            'name' => input('post.sortname'),
-            'icon' => input('post.sorticon'),
-            'sort' => '1',
-            'time' => time(), 
+            'post' => $post,
+            'count' => $count,
+            'top10' => $data,
         ];
-        $re = Db::name('info')->insert($data);
-        if ($re) {
-            $this->success("添加成功");
+        return returnJsonData(200, '获取成功', $data);
+    }
+
+    public function getNew10()
+    {
+        $log = Db::name('setup')->field('log')->find();
+        $file = $log["log"];
+        $num = 10;
+        $fp = @fopen($file,"r");
+        if(!$fp){
+            return returnJsonData(201, '获取失败', null);
+        }
+        $pos = -2;
+        $eof = "";
+        $head = false;
+        $data = array();
+        while($num>0){
+            while($eof != "\n"){
+                if(fseek($fp, $pos, SEEK_END)==0){
+                    $eof = fgetc($fp);$pos--;
+                }else{
+                    fseek($fp,0,SEEK_SET);$head = true;break;
+                }
+            }
+            array_unshift($data,fgets($fp));
+            if($head){ break; }$eof = "";$num--;
+        }
+        fclose($fp);
+        $data = str_replace('"', ' ', $data);
+        $data = str_replace('[', '', $data);
+        $data = str_replace(']', '', $data);
+        $data = str_replace('- - ', '', $data);
+        $data = str_replace('  ', ' ', $data);
+        $data = str_replace('?', ' ', $data);
+        $data = array_map('explode', array_fill(0, count($data), ' '), $data);
+        rsort($data);
+        return returnJsonData(200, '获取成功', $data);
+    }
+
+    public function editUserinfo()
+    {
+        if(\request()->isPost()){
+            $data = input('post.');
+            $data = [
+                'username' => $data['username'],
+                'password' => hashPwd($data['password']),
+                'email' => $data['email'],
+            ];
+            $res = Db::name('user')->where('uid', 1)->update(array_filter($data));
+            if($res){
+                return returnJsonData(200, '修改成功');
+            }else{
+                return returnJsonData(201, '修改失败');
+            }
         }else{
-            $this->error("添加失败");
+            $info = Db::name('user')->where('uid', 1)->find();
+            $data = [
+                'username' => $info['username'],
+                'email' => $info['email'],
+                'time' => $info['time'],
+            ];
+            return returnJsonData(200, '获取成功', $data);
         }
     }
-    public function edits()
+
+    public function apiSearch()
     {
-        $id = $_GET['id'];
-        $sort = Db::name('info')->where('id',$id)->select(); 
-        return view('edits', [
-            'sort' => $sort,
-        ]); 
+        $title = '接口搜索';
+        return $this->fetch('search', ['title' => $title]);
+    }
+
+    public function apiSearchlist()
+    {
+        $keyword = input('keyword');
+        if (!empty($keyword)) {
+            $data = Db::name('info')->where('name', 'like', '%' . $keyword . '%')->order('id asc')->paginate(10);
+            if (count($data) > 0) {
+                return returnJsonData(200, '搜索成功', $data);
+            } else {
+                return returnJsonData(201, '没有检索到您输入的关键字', null);
+            }
+        } else {
+            return returnJsonData(201, '请输入关键词', null);
+        }
 
     }
-    public function upedits()
+
+    public function black()
     {
-        $data = [
-            'name' => input('post.sortname'), 
-            'icon' => input('post.sorticon'), 
-            'time' => time(), 
-        ];
-        $id = (int)input('post.id');
-        $re = Db::name('info')->where('id',$id)->update($data);
-        if ($re) {
-            $this->success("分类修改成功");
-        }else{
-            $this->error("分类修改失败");
+        $title = '请求限制';
+        return $this->fetch('black', ['title' => $title]);
+    }
+
+    public function postBlack()
+    {
+        $data = input('post.');
+        if (!empty($data['value'])) {
+            $data['time'] = time();
+            $res = Db::name('black')->insert($data);
+            if ($res) {
+                $this->insertData();
+                return returnJsonData(200, '添加成功', null);
+            } else {
+                return returnJsonData(201, '添加失败', null);
+            }
+        } else {
+            return returnJsonData(201, '请输入限制目标', null);
         }
     }
-    public function sortdel()
+    public function blacklist()
     {
-        $id = $_GET['id'];
-        $re=Db::name('info')->where('id',$id)->delete();
-        if ($re) {
-            $this->success("分类删除成功",url('Index/sort'));
-        }else{
-            $this->error("删除失败,请确认分类是否存在",url('Index/sort'));
+        $data = Db::name('black')->order('id desc')->paginate(10);
+        if (count($data) > 0) {
+            return returnJsonData(200, '获取成功', $data);
+        } else {
+            return returnJsonData(201, '没有数据', null);
         }
+    }
+
+    public function blackOper()
+    {
+        $id = input('id');
+        if(\request()->isPost()){
+            $data = Db::name('black')->where('id', $id)->delete();
+            if ($data) {
+                $this->insertData();
+                return returnJsonData(200, '删除成功', null);
+            } else {
+                return returnJsonData(201, '删除失败', null);
+            }
+        }else{
+            $data = Db::name('black')->where('id', $id)->find();
+            if ($data) {
+                return returnJsonData(200, '获取成功', $data);
+            } else {
+                return returnJsonData(201, '获取失败', null);
+            }
+        }
+    }
+
+    public function getList()
+    {
+        $data = Db::name('black')->order('id asc')->paginate(10);
+        if (count($data) > 0) {
+            return returnJsonData(200, '获取成功', $data);
+        } else {
+            return returnJsonData(201, '没有数据', null);
+        }
+    }
+
+    public function blackEdit()
+    {
+        $title = '编辑限制';
+        return $this->fetch('blackEdit', ['title' => $title]);
+    }
+
+    public function blackUpdate()
+    {
+        $data = input('post.');
+        if(!empty($data['id'])){
+            $data['time'] = time();
+            $res = Db::name('black')->where('id',$data['id'])->update($data);
+            if($res){
+                return returnJsonData(200, '更新成功',null);
+            }else{
+                return returnJsonData(201, '更新失败',null);
+            }
+        }else{
+            return returnJsonData(201, '参数错误',null);
+        }
+    }
+
+    public function insertData(){
+        $config='black.data';
+        $ilist = Db::name('black')->where('type',1)->field('value')->select();
+        $rlist = Db::name('black')->where('type',0)->field('value')->select();
+        $fp=fopen($config,'w');
+        $data=[
+            'ip'=>[$ilist],
+            're'=>[$rlist]
+            ];
+        fwrite($fp,json_encode($data));
+        fclose($fp);
     }
 }
-?>

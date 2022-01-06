@@ -1,0 +1,140 @@
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-progress" style="display: none;">
+        <div class="mdui-progress-indeterminate"></div>
+    </div>
+    <div class="mdui-row">
+        <div class="mdui-col-md-12">
+            <div class="mdui-card">
+                <div class="mdui-col-md-4">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">站点名称</label>
+                        <input class="mdui-textfield-input" id="title" type="text" />
+                    </div>
+                </div>
+                <div class="mdui-col-md-4">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">站点链接</label>
+                        <input class="mdui-textfield-input" id="domain" type="text" />
+                    </div>
+                </div>
+                <div class="mdui-col-md-4">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">日志路径</label>
+                        <input class="mdui-textfield-input" id="log" type="text" />
+                    </div>
+                </div>
+                <div class="mdui-col-md-12">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">站点关键字</label>
+                        <input class="mdui-textfield-input" id="keywords" type="text" />
+                    </div>
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">站点描述</label>
+                        <input class="mdui-textfield-input" id="desc" type="text" />
+                    </div>
+                </div>
+                <div class="mdui-col-md-6">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">百度统计ID</label>
+                        <input class="mdui-textfield-input" id="baidu" type="text" />
+                    </div>
+                </div>
+                <div class="mdui-col-md-6">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">Server酱Key</label>
+                        <input class="mdui-textfield-input" id="server" type="text" />
+                    </div>
+                </div>
+                <div class="mdui-col-md-6">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">自定义JS</label>
+                        <textarea class="mdui-textfield-input" id="css" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="mdui-col-md-6">
+                    <div class="mdui-textfield">
+                        <label class="mdui-textfield-label">自定义CSS</label>
+                        <textarea class="mdui-textfield-input" id="js" rows="6"></textarea>
+                    </div>
+                </div>
+                <button id="siteGet" class="mdui-btn mdui-btn-block mdui-btn-raised">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.mdui-container').hide();
+    $('.loading').show();
+    $.get({
+        url: '{:url("admin/index/getSetup")}',
+        dataType: 'json',
+        success: function(data) {
+            if (data.code == 200) {
+                $('#title').val(data.data.title);
+                $('#domain').val(data.data.domain);
+                $('#keywords').val(data.data.keywords);
+                $('#desc').val(data.data.desc);
+                $('#baidu').val(data.data.baidu);
+                $('#css').val(data.data.css);
+                $('#js').val(data.data.js);
+                $('#server').val(data.data.server);
+                $('#log').val(data.data.log);
+            } else {
+                mdui.snackbar({
+                    message: data.data.msg,
+                    position: 'top'
+                });
+            }
+
+            setTimeout(function() {
+                $(".loading").hide();
+                $(".mdui-container").show();
+            }, 1000);
+        }
+    });
+
+    $('#siteGet').click(function() {
+        var title = $('#title').val();
+        var domain = $('#domain').val();
+        var keywords = $('#keywords').val();
+        var desc = $('#desc').val();
+        var baidu = $('#baidu').val();
+        var css = $('#css').val();
+        var js = $('#js').val();
+        var server = $('#server').val();
+        var log = $('#log').val();
+        $.post({
+            url: '{:url("admin/index/setSetup")}',
+            data: {
+                title: title,
+                domain: domain,
+                keywords: keywords,
+                desc: desc,
+                baidu: baidu,
+                css: css,
+                js: js,
+                log: log,
+            },
+            dataType: 'json',
+            success: function(data) {
+                if (data.code == 200) {
+                    mdui.snackbar({
+                        message: data.msg,
+                        position: 'top'
+                    });
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 1000);
+                } else {
+                    mdui.snackbar({
+                        message: data.msg,
+                        position: 'top'
+                    });
+                }
+            }
+        });
+    });
+</script>
+
+{include file="footer" /}

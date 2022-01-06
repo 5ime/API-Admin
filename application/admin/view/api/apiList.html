@@ -1,0 +1,69 @@
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-progress" style="display: none;">
+        <div class="mdui-progress-indeterminate"></div>
+    </div>
+    <div class="mdui-row">
+        <div class="mdui-col-xs-12">
+            <div class="mdui-table-fluid list">
+                <table class="mdui-table mdui-table-hoverable mdui-typo">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>接口名称</th>
+                            <th>接口路径</th>
+                            <th>调用次数</th>
+                            <th>最后修改时间</th>
+                            <th>操作管理</th>
+                        </tr>
+                    </thead>
+                    <tbody id='table'></tbody>
+                </table>
+            </div>
+            <div class="mdui-btn-group mdui-float-right" id="page"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.mdui-container').hide();
+    $(".loading").show();
+    $.ajax({
+        url: "{:url('api/getList')}" + "?page=" + getQueryVariable("page"),
+        type: "get",
+        dataType: "json",
+        success: function(json) {
+            var html = '';
+            var pages = '';
+            var butHtml = '<a class="mdui-btn mdui-btn-raised mdui-btn-dense moe-btn" ';
+            for (var i = 0; i < json.data.data.length; i++) {
+                html += '<tr><td>' + json.data.data[i].id + '</td><td>' + json.data.data[i].name + '</td><td>' + json.data.data[i].path + '</td><td>' + json.data.data[i].count + '</td><td>' + getLocalTime(json.data.data[i].time) + '</td><td><a onclick="apiEdit(' + json.data.data[i].id + ')">修改</a> <a onclick="apiDelete(' + json.data.data[i].id + ')">删除</a></td></tr>';
+            }
+            for (var j = 0; j < json.data.last_page; j++) {
+                pages += butHtml + 'href="?page=' + (j + 1) + '">' + (j + 1) + '</a>';
+            }
+            if (getQueryVariable("page") == 1 || json.data.current_page == 1) {
+                pages = butHtml + 'disabled>«</a>' + pages;
+            } else {
+                pages = butHtml + 'href="?page=' + (parseInt(json.data.current_page) - 1) + '">«</a>' + pages;
+            }
+            if (getQueryVariable("page") == json.data.last_page || json.data.last_page == 1) {
+                pages += butHtml + 'disabled>»</a>';
+            } else {
+                pages += butHtml + 'href="?page=' + (parseInt(json.data.current_page) + 1) + '">»</a>';
+            }
+
+            setTimeout(function() {
+                $('#table').html(html);
+                $('#page').html(pages);
+                $(".loading").hide();
+                if (json.data.current_page == 1) {
+                    $("#page a").eq(1).addClass("mdui-btn-active");
+                } else if (json.data.current_page == getQueryVariable("page")) {
+                    $("#page a").eq(getQueryVariable("page")).addClass("mdui-btn-active");
+                }
+                $(".mdui-container").show();
+            }, 500);
+        }
+    });
+</script>
+{include file="footer" /}

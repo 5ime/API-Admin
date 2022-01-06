@@ -6,7 +6,7 @@ header('Content-type:text/html;charset=utf-8');
 
 // 配置页面
 $config = [
-    'version'       => 'V1.2',    // 版本
+    'version'       => 'V2.0',    // 版本
 
     'indexPage'     => 'a_welcome',             // 首页
     'checkPage'     => 'b_check',               // 检查页
@@ -16,7 +16,7 @@ $config = [
 
     'sqlName'       => 'api',             // 安装的sql文件名，同该文件同级的sql文件名相同
     'tableName'     => 'api_',                  // 安转的sql文件中的表名前缀，该项是被用户输入替换的
-    'databaseUrl'   => '../application/database.php',    // db.php安装地址
+    'databaseUrl'   => '../config/database.php',    // db.php安装地址
 
     'account'       => 'admin',            // 安装成功后的 登录账号
     'password'      => '123456'                 // 安装成功后的 登录密码
@@ -133,6 +133,14 @@ return [
     'datetime_format' => 'Y-m-d H:i:s',
     // 是否需要进行SQL性能分析
     'sql_explain'     => false,
+    // Builder类
+    'builder'         => '',
+    // Query类
+    'query'           => '\\think\\db\\Query',
+    // 是否需要断线重连
+    'break_reconnect' => false,
+    // 断线标识字符串
+    'break_match_str' => [],
 ];
 php;
         // 数据库连接配置文件路径

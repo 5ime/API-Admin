@@ -1,7 +1,11 @@
 <?php $counter = intval(file_get_contents("counter.dat")); ?>
 <?php include 'function.php';?>
 <?php
-include "../count.php";
+include '../black.php';
+$path = __FILE__;
+$test = explode('\\',$path);
+$path = $test[count($test)-3]."/".$test[count($test)-2];
+file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
 header("Content-type: image/JPEG");
 $im = imagecreatefromjpeg("xhxh.jpg"); 
 $ip = $_SERVER["REMOTE_ADDR"];

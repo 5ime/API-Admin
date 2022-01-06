@@ -1,0 +1,105 @@
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-col-xs-12">
+        <div class="mdui-card">
+            <div class="mdui-row">
+                <div class="mdui-col-md-10">
+                    <div class="mdui-textfield">
+                        <input type="text" class="mdui-textfield-input" id="postTitle" placeholder="文章标题" />
+                    </div>
+                </div>
+                <div class="mdui-col-md-2">
+                    <div class="mdui-textfield" style="overflow: unset;">
+                        <select class="mdui-select" id="postSort"></select>
+                    </div>
+                </div>
+
+                <div class="mdui-col-md-12">
+                    <div id="editor">
+                        <textarea id="detail" style="display:none;"></textarea>
+                    </div>
+                </div>
+                <button id="postGet" class="mdui-btn mdui-btn-block mdui-btn-raised">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/editor/editormd.min.js"></script>
+<script src="/public/static/editor/lib/marked.min.js"></script>
+<script src="/public/static/editor/lib/prettify.min.js"></script>
+<script type="text/javascript">
+    $('.mdui-container').hide();
+    $('.loading').show();
+    $.get("/admin/sort/getList", function(data) {
+        var inst = new mdui.Select('#postSort');
+        if (data.code == 200) {
+            for (var i = 0; i < data.data.data.length; i++) {
+                if (data.data.data[i].type == 1) {
+                    $('#postSort').append('<option value="' + data.data.data[i].id + '">' + data.data.data[i].name + '</option>');
+                }
+            }
+            inst.handleUpdate();
+        } else {
+            $('.loading').hide();
+            mdui.snackbar({
+                message: '请求失败'
+            });
+        }
+    });
+
+    $.get("/admin/post/postOper?id=" + getQueryVariable('id'), function(data) {
+        if (data.code == 200) {
+            $('.mdui-select-selected').eq(0).text(data.data.sort);
+            $('#postTitle').val(data.data.title);
+            $('#detail').val(data.data.content);
+        } else {
+            mdui.snackbar({
+                message: '请求失败'
+            });
+        }
+        setTimeout(() => {
+            $(function() {
+                var editor = editormd("editor", {
+                    width: "100%",
+                    height: 450,
+                    path: "/public/static/editor/lib/",
+                    htmlDecode: true,
+                });
+            });
+            $(".loading").hide();
+            $('.mdui-container').show();
+        }, 1000);
+    });
+
+    $('#postGet').click(function() {
+        $(".loading").show();
+        var postTitle = $('#postTitle').val();
+        var postSort = $('.mdui-select-selected').text();
+        var postContent = $('#detail').val();
+        var postId = getQueryVariable('id');
+        var postData = {
+            title: postTitle,
+            sort: postSort,
+            content: postContent,
+            id: postId
+        };
+        console.log(postData);
+        $.post("/admin/post/postUpdate", postData, function(data) {
+            if (data.code == 200) {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                $(".loading").hide();
+            }
+            return false;
+        });
+    });
+</script>
+{include file="footer" /}

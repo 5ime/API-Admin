@@ -49,7 +49,7 @@ abstract class Relation
     }
 
     /**
-     * 获取当前的关联模型对象实例
+     * 获取当前的关联模型类的实例
      * @access public
      * @return Model
      */
@@ -59,7 +59,7 @@ abstract class Relation
     }
 
     /**
-     * 获取关联的查询对象
+     * 获取当前的关联模型类的实例
      * @access public
      * @return Query
      */
@@ -93,7 +93,7 @@ abstract class Relation
     /**
      * 封装关联数据集
      * @access public
-     * @param array $resultSet 数据集
+     * @param  array $resultSet 数据集
      * @return mixed
      */
     protected function resultSetBuild($resultSet)
@@ -127,6 +127,42 @@ abstract class Relation
         return $fields;
     }
 
+    protected function getQueryWhere(&$where, $relation)
+    {
+        foreach ($where as $key => &$val) {
+            if (is_string($key)) {
+                $where[] = [false === strpos($key, '.') ? $relation . '.' . $key : $key, '=', $val];
+                unset($where[$key]);
+            } elseif (isset($val[0]) && false === strpos($val[0], '.')) {
+                $val[0] = $relation . '.' . $val[0];
+            }
+        }
+    }
+
+    /**
+     * 更新数据
+     * @access public
+     * @param  array $data 更新数据
+     * @return integer|string
+     */
+    public function update(array $data = [])
+    {
+        return $this->query->update($data);
+    }
+
+    /**
+     * 删除记录
+     * @access public
+     * @param  mixed $data 表达式 true 表示强制删除
+     * @return int
+     * @throws Exception
+     * @throws PDOException
+     */
+    public function delete($data = null)
+    {
+        return $this->query->delete($data);
+    }
+
     /**
      * 执行基础查询（仅执行一次）
      * @access protected
@@ -141,13 +177,9 @@ abstract class Relation
             // 执行基础查询
             $this->baseQuery();
 
-            $result = call_user_func_array([$this->query, $method], $args);
-            if ($result instanceof Query) {
-                return $this;
-            } else {
-                $this->baseQuery = false;
-                return $result;
-            }
+            $result = call_user_func_array([$this->query->getModel(), $method], $args);
+
+            return $result === $this->query && !in_array(strtolower($method), ['fetchsql', 'fetchpdo']) ? $this : $result;
         } else {
             throw new Exception('method not exists:' . __CLASS__ . '->' . $method);
         }

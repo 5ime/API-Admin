@@ -20,12 +20,13 @@ class DbException extends Exception
 {
     /**
      * DbException constructor.
-     * @param string    $message
-     * @param array     $config
-     * @param string    $sql
-     * @param int       $code
+     * @access public
+     * @param  string    $message
+     * @param  array     $config
+     * @param  string    $sql
+     * @param  int       $code
      */
-    public function __construct($message, array $config, $sql, $code = 10500)
+    public function __construct($message, array $config = [], $sql = '', $code = 10500)
     {
         $this->message = $message;
         $this->code    = $code;

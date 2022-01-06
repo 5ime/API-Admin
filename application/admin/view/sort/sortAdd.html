@@ -1,0 +1,70 @@
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-col-xs-12">
+        <div class="mdui-card">
+            <div class="mdui-row">
+                <div class="mdui-col-md-1 mdui-col-sm-2">
+                    <div class="mdui-textfield" style="overflow: inherit;">
+                        <select class="mdui-select" id="sortType" mdui-select="{position: 'bottom'}">
+                                <option value="0">接口</option>
+                                <option value="1">文章</option>
+                              </select>
+                    </div>
+                </div>
+                <div class="mdui-col-md-3 mdui-col-sm-4">
+                    <div class="mdui-textfield">
+                        <input type="text" id="sortIcon" class="mdui-textfield-input" value="dvr" placeholder="ICON" />
+                        <div class="mdui-textfield-helper mdui-typo">
+                            <a href="https://www.mdui.org/docs/material_icon" target="_blank">选择图标</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-col-md-8 mdui-col-sm-6">
+                    <div class="mdui-textfield">
+                        <input type="text" id="sortName" class="mdui-textfield-input" placeholder="填写分类名称" />
+                        <div class="mdui-textfield-helper">保持在六个字内</div>
+                    </div>
+                </div>
+
+                <button id="sortGet" class="mdui-btn mdui-btn-block mdui-btn-raised">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $('.mdui-container').hide();
+    $('.loading').show();
+    setTimeout(() => {
+        $('.loading').hide();
+        $('.mdui-container').show();
+    }, 500);
+    $('#sortGet').click(function() {
+        $(".loading").show();
+        var sortName = $('#sortName').val();
+        var sortIcon = $('#sortIcon').val();
+        var sortType = $('.mdui-select-selected').text();
+        var sortType = sortType == '接口' ? 0 : 1;
+        var sortData = {
+            name: sortName,
+            icon: sortIcon,
+            type: sortType,
+        };
+        $.post("/admin/sort/sortPostadd", sortData, function(data) {
+            if (data.code == 200) {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                $(".loading").hide();
+            }
+            return false;
+        });
+    });
+</script>
+{include file="footer" /}

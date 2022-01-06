@@ -1,6 +1,10 @@
 <?php
 /*蓝优 4.23*/
-include "../count.php";
+include '../black.php';
+$path = __FILE__;
+$test = explode('\\',$path);
+$path = $test[count($test)-3]."/".$test[count($test)-2];
+file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
 header("Access-Control-Allow-Origin:*");
 header('Content-type: application/json');
 !empty($_REQUEST['url']) ? $url = $_REQUEST['url'] : exit(json_encode([

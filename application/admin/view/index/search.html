@@ -1,54 +1,77 @@
-{include file="public/header.html" /}
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">搜索结果</h4>
-                  <p class="card-category">{$tips}</p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive text-center">
-                    <table class="table">
-                      <thead class="text-primary">
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-progress" style="display: none;">
+        <div class="mdui-progress-indeterminate"></div>
+    </div>
+    <div class="mdui-row">
+        <div class="mdui-col-xs-12">
+            <div class="mdui-table-fluid list">
+                <table class="mdui-table mdui-table-hoverable mdui-typo">
+                    <thead>
                         <tr>
-                          <th>API ID</th>
-                          <th>API名称</th>
-                          <th>最后修改时间</th>
-                          <th></th>
+                            <th>#</th>
+                            <th>接口名称</th>
+                            <th>接口路径</th>
+                            <th>调用次数</th>
+                            <th>最后修改时间</th>
+                            <th>操作管理</th>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {volist name="api" id='api'}
-                        <tr>
-                          <td>{$api.id}</td>
-                          <td>{$api.name}</td>
-                          <td>{$api.time|date='Y-m-d H:i:s',###}</td>
-                          <td class="td-actions">
-                              <button type="button" onclick="window.location.href='{:url('index/edit')}?id={$api.id}'" class="btn btn-primary btn-link btn-sm">
-                                <i class="material-icons">edit</i>
-                              </button>
-                              <button type="button" onclick="window.location.href='{:url('index/apidel')}?id={$api.id}'" class="btn btn-danger btn-link btn-sm">
-                                  <i class="material-icons">close</i>
-                              </button>
-                          </td>
-                        </tr>
-                        {/volist}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
+                    </thead>
+                    <tbody id='table'></tbody>
+                </table>
             </div>
-          </div>
+            <div class="mdui-btn-group mdui-float-right" id="page"></div>
         </div>
-      </div>
-        <style>
-        ul.pagination {display: inline-block;padding: 0;margin: 0;}
-        ul.pagination{text-align:center;margin-top:20px;margin-bottom: 20px;}  
-        ul.pagination li{margin:0px 2px; width: 24px; border:1px solid #e6e6e6;padding: 3px 5px;display: inline-block;}  
-        ul.pagination .active{background-color: #9c27b0;color: #fff;}  
-        ul.pagination .disabled{color:#aaa;} 
-        </style>
-{include file="public/footer.html" /}
+    </div>
+</div>
+<script>
+    $('.mdui-container').hide();
+    $(".loading").show();
+    $.ajax({
+        url: "{:url('index/apiSearchlist')}" + "?keyword=" + getQueryVariable("keyword") + "&page=" + getQueryVariable("page"),
+        type: "get",
+        dataType: "json",
+        success: function(json) {
+            if (json.code == 200) {
+                var html = '';
+                var pages = '';
+                var butHtml = '<a class="mdui-btn mdui-btn-raised mdui-btn-dense moe-btn" ';
+                for (var i = 0; i < json.data.data.length; i++) {
+                    html += '<tr><td>' + json.data.data[i].id + '</td><td>' + json.data.data[i].name + '</td><td>' + json.data.data[i].path + '</td><td>' + json.data.data[i].count + '</td><td>' + getLocalTime(json.data.data[i].time) + '</td><td><a onclick="apiEdit(' + json.data.data[i].id + ')">修改</a> <a onclick="apiDelete(' + json.data.data[i].id + ')">删除</a></td></tr>';
+                }
+                for (var j = 0; j < json.data.last_page; j++) {
+                    pages += butHtml + 'href="' + "?keyword=" + getQueryVariable("keyword") + '&page=' + (j + 1) + '">' + (j + 1) + '</a>';
+                }
+                if (getQueryVariable("page") == 1 || json.data.current_page == 1) {
+                    pages = butHtml + 'disabled>«</a>' + pages;
+                } else {
+                    pages = butHtml + 'href="' + "?keyword=" + getQueryVariable("keyword") + '&page=' + (parseInt(json.data.current_page) - 1) + '">«</a>' + pages;
+                }
+                if (getQueryVariable("page") == json.data.last_page || json.data.last_page == 1) {
+                    pages += butHtml + 'disabled>»</a>';
+                } else {
+                    pages += butHtml + 'href="' + "?keyword=" + getQueryVariable("keyword") + '&page=' + (parseInt(json.data.current_page) + 1) + '">»</a>';
+                }
+
+                setTimeout(function() {
+                    $('#table').html(html);
+                    $('#page').html(pages);
+                    $(".loading").hide();
+                    if (json.data.current_page == 1) {
+                        $("#page a").eq(1).addClass("mdui-btn-active");
+                    } else if (json.data.current_page == getQueryVariable("page")) {
+                        $("#page a").eq(getQueryVariable("page")).addClass("mdui-btn-active");
+                    }
+                    $(".mdui-container").show();
+                }, 500);
+            } else {
+                mdui.snackbar({
+                    message: json.msg,
+                });
+                $('.mdui-container').show();
+                $(".loading").hide();
+            }
+        }
+    });
+</script>
+{include file="footer" /}

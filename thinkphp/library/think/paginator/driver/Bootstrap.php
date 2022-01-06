@@ -57,13 +57,14 @@ class Bootstrap extends Paginator
      */
     protected function getLinks()
     {
-        if ($this->simple)
+        if ($this->simple) {
             return '';
+        }
 
         $block = [
             'first'  => null,
             'slider' => null,
-            'last'   => null
+            'last'   => null,
         ];
 
         $side   = 3;
@@ -117,7 +118,7 @@ class Bootstrap extends Paginator
                 );
             } else {
                 return sprintf(
-                    '<ul class="pagination">%s %s %s</ul>',
+                    '<div class="mdui-btn-group mdui-float-right">%s %s %s</div>',
                     $this->getPreviousButton(),
                     $this->getLinks(),
                     $this->getNextButton()
@@ -135,7 +136,7 @@ class Bootstrap extends Paginator
      */
     protected function getAvailablePageWrapper($url, $page)
     {
-        return '<li><a href="' . htmlentities($url) . '">' . $page . '</a></li>';
+        return '<a class="mdui-btn mdui-btn-raised moe-btn" href="' . htmlentities($url) . '">' . $page . '</a>';
     }
 
     /**
@@ -146,7 +147,7 @@ class Bootstrap extends Paginator
      */
     protected function getDisabledTextWrapper($text)
     {
-        return '<li class="disabled"><span>' . $text . '</span></li>';
+        return '<a class="mdui-btn moe-btn" disabled>' . $text . '</a>';
     }
 
     /**
@@ -157,7 +158,7 @@ class Bootstrap extends Paginator
      */
     protected function getActivePageWrapper($text)
     {
-        return '<li class="active"><span>' . $text . '</span></li>';
+        return '<a class="mdui-btn mdui-btn-raised mdui-btn-active moe-btn">' . $text . '</a>';
     }
 
     /**
@@ -196,7 +197,7 @@ class Bootstrap extends Paginator
      */
     protected function getPageLinkWrapper($url, $page)
     {
-        if ($page == $this->currentPage()) {
+        if ($this->currentPage() == $page) {
             return $this->getActivePageWrapper($page);
         }
 

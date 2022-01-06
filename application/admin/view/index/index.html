@@ -1,86 +1,178 @@
-{include file="public/header.html" /}
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-info card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">equalizer</i>
-                  </div>
-                  <p class="card-category">总调用数</p>
-                  <h3 class="card-title">{$num}<small>次</small></h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    每天12点更新&nbsp;<a href="https://github.com/5ime/API-Admin/wiki/%E6%80%BB%E8%B0%83%E7%94%A8%E6%95%B0%E4%BD%BF%E7%94%A8">点我查看如何设置定时任务</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-              <div class="card card-stats">
-                <div class="card-header card-header-success card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">store</i>
-                  </div>
-                  <p class="card-category">总API数</p>
-                  <h3 class="card-title">{$count}<small>个</small></h3>
-                </div>
-                <div class="card-footer">
-                  <div class="stats">
-                    Just So So...
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="card">
-                <div class="card-header card-header-warning">
-                  <h4 class="card-title">管理员信息</h4>
-                </div>
-                <div class="card-body">
-                  <form action="{:url('index/upuser')}" method="post">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">用户名</label>
-                          <input name="username" value="{$userinfo['username']}" type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label class="bmd-label-floating">新密码</label>
-                          <input name="password" type="password" class="form-control">
-                        </div>
-                      </div>
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-progress" style="display: none;">
+        <div class="mdui-progress-indeterminate"></div>
+    </div>
+    <style>
+        .icon .mdui-icon {
+            font-size: 60px;
+            line-height: 100px;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
+    <div class="mdui-row">
+        <div class="mdui-col-md-6">
+            <div class="mdui-col-md-6 mdui-col-sm-6">
+                <div class="mdui-card">
+                    <div class="content">
+                        <h3>调用总数</h3>
+                        <p id="count"></p>
                     </div>
-                    <button type="submit" class="btn btn-primary pull-right">确认修改</button>
-                    <div class="clearfix"></div>
-                  </form>
                 </div>
-              </div>
             </div>
-            <div class="col-lg-6 col-md-12">
-              <div class="card">
-                <div class="card-header card-header-danger">
-                  <h4 class="card-title">帮助信息</h4>
+            <div class="mdui-col-md-6 mdui-col-sm-6">
+                <div class="mdui-card">
+                    <div class="content">
+                        <h3>接口总数</h3>
+                        <p id="info"></p>
+                    </div>
                 </div>
-                <div class="card-body">
-                  <div class="tim-typo">
-                    <p class="text-primary">
-                      <p>添加API教程</p>
-                      <a href="https://github.com/5ime/API-Admin/wiki/%E6%80%BB%E8%B0%83%E7%94%A8%E6%95%B0%E4%BD%BF%E7%94%A8">https://github.com/5ime/API-Admin/wiki</a></p>
-                  </div>
-                  <div class="tim-typo">
-                    <p class="text-info" >
-                      <p>欢迎Star和Issues</p>
-                      <a href="https://github.com/5ime/API-Admin">https://github.com/5ime/API-Admin</a></p>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+            <div class="mdui-col-md-6 mdui-col-sm-6">
+                <div class="mdui-card">
+                    <div class="content">
+                        <h3>分类总数</h3>
+                        <p id="sort"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="mdui-col-md-6 mdui-col-sm-6">
+                <div class="mdui-card">
+                    <div class="content">
+                        <h3>文章总数</h3>
+                        <p id="post"></p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-{include file="public/footer.html" /}
+        <div class="mdui-col-md-6  mdui-col-sm-12">
+            <div class="mdui-card">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="mdui-table-fluid" style="position: relative; display: none;">
+        <span style="position: absolute;top: 10px;right: 10px;z-index: 99;">
+            <a href="javascript:;" class="mdui-btn mdui-btn-icon" id="getNewData" mdui-tooltip="{content: '刷新数据'}">
+                <i class="mdui-icon material-icons">loop</i>
+            </a>
+        </span>
+        <table class="mdui-table mdui-table-hoverable">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>请求 IP</th>
+                    <th>请求方式</th>
+                    <th>请求路径</th>
+                    <th>状态码</th>
+                    <th>请求时间</th>
+                </tr>
+            </thead>
+            <tbody id="New10">
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    $('.mdui-container').hide();
+    $('.loading').show();
+    $.ajax({
+        url: '{:url("admin/index/getCount")}',
+        type: 'post',
+        dataType: 'json',
+        success: function(data) {
+            var data = data.data;
+            var ctx = document.getElementById("myChart");
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'API Top 10',
+                        data: [],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(123, 128, 234, 0.2)',
+                            'rgba(57, 154, 457, 0.2)',
+                            'rgba(41, 132, 254, 0.2)',
+                            'rgba(77, 234, 238, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(123, 128, 234, 1)',
+                            'rgba(57, 154, 457, 1)',
+                            'rgba(41, 132, 254, 1)',
+                            'rgba(77, 234, 238, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+            for (var i = 0; i < data.top10.length; i++) {
+                myChart.data.labels.push(data.top10[i].name);
+                myChart.data.datasets[0].data.push(data.top10[i].count);
+            }
+            $('#count').html(data.count);
+            $('#info').html(data.info);
+            $('#sort').html(data.sort);
+            $('#post').html(data.post);
+        }
+    });
+    $.ajax({
+        url: "{:url('admin/index/getNew10')}",
+        type: 'get',
+        dataType: 'json',
+        success: function(data) {
+            if (data.code == 200) {
+                $('.mdui-table-fluid').show();
+                for (var i = 0; i < data.data.length; i++) {
+                    $('#New10').append('<tr><td>' + parseInt(i + 1) + '</td><td>' + data.data[i][0] + '</td><td>' + data.data[i][3] + '</td><td>' + data.data[i][4] + '</td><td>' + data.data[i].slice(-2, -1) + '</td><td>' + data.data[i][1] + '</td></tr>');
+                }
+            } else {
+                mdui.snackbar({
+                    message: '最新请求数据获取失败，请检查日志文件是否可以被访问！',
+                    position: 'top'
+                });
+            }
+        }
+    });
+
+    $("#getNewData").click(function() {
+        $.ajax({
+            url: "{:url('admin/index/getNew10')}",
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                $('#New10').html('');
+                for (var i = 0; i < data.data.length; i++) {
+                    $('#New10').append('<tr><td>' + parseInt(i + 1) + '</td><td>' + data.data[i][0] + '</td><td>' + data.data[i][3] + '</td><td>' + data.data[i][4] + '</td><td>' + data.data[i].slice(-2, -1) + '</td><td>' + data.data[i][1] + '</td></tr>');
+                }
+            }
+        });
+    });
+    setTimeout(() => {
+        $('.mdui-container').show();
+        $('.loading').hide();
+    }, 1000);
+</script>
+{include file="footer" /}

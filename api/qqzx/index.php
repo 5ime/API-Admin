@@ -1,5 +1,9 @@
 <?php
-include "../count.php";
+include '../black.php';
+$path = __FILE__;
+$test = explode('\\',$path);
+$path = $test[count($test)-3]."/".$test[count($test)-2];
+file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
 if ($_GET['qq']) {
 $qq = $_GET['qq'];
 $data = file_get_contents("http://webpresence.qq.com/getonline?type=1&$qq:");

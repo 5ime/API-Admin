@@ -1,6 +1,10 @@
 <?php
 //读取文本
-include "../count.php";
+include '../black.php';
+$path = __FILE__;
+$test = explode('\\',$path);
+$path = $test[count($test)-3]."/".$test[count($test)-2];
+file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
 $str = explode("\n", file_get_contents('sinetxt.txt'));
 $k = rand(0,count($str));
 $sina_img = str_re($str[$k]);

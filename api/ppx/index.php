@@ -1,5 +1,9 @@
 <?php
-include "../count.php";
+include '../black.php';
+$path = __FILE__;
+$test = explode('\\',$path);
+$path = $test[count($test)-3]."/".$test[count($test)-2];
+file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
 header("Access-Control-Allow-Origin: *");
 $url = @$_GET['url'];
 if (strstr($url,"pipix.com")) {

@@ -3,65 +3,77 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Db;
-use app\index\model\Cate as CateModel;
-use think\File;
+use Parsedown;
 
 class Index extends Controller
 {
-    public function index(){
-        $info = Db::name('setup')->find();
-        $api = Db::name('info')->select();
-        $apicount = Db::name('info')->count();
-        if(date('H') == 0){
-            $file = (int)file_get_contents('api/counter.dat');
-            $apinum = Db::name('setup')->column('counts');
-            if ($apinum[0]>$file){
-                $file += $apinum[0];
-                $data['counts'] = $file;
-                var_dump($data);
-                $re = Db::name('setup')->where('id',1)->update($data);
-            }else{
-                $data['counts'] = $file;
-                $re = Db::name('setup')->where('id',1)->update($data);
-            }
-        }
-        return view('index', [
-            'info' => $info,
-            'api' => $api,
-            'count' => $apicount,
+    public function index()
+    {
+        $siteInfo = Db::name('setup')->field('title,keywords,desc,baidu,css,js')->find();
+        $apiList = Db::name('info')->field('id,name,doc')->order('id asc')->select();
+        $postList = Db::name('post')->field('id,title,time')->order('id desc')->limit(10)->select();
+        return $this->fetch('index',[
+            'site' => $siteInfo,
+            'api' => $apiList,
+            'post' => $postList,
         ]);
     }
+
     public function doc(){
     	$doc = input('id');
         $api = Db::name('info')->where("doc='$doc'")->find();
-        $list = Db::name('info')->order('sort desc')->select();
         $info = Db::name('setup')->find();
-        //echo Db::name('info')->getLastsql();die;
-        if ($list) {
-            $tree = $this->getTree($list,0);
-        }
-        if (empty($api)) {
-            header("HTTP/1.0 404 Not Found");
-            return $this->fetch(APP_PATH.'404.html');
-        }
-    	return view('doc',[
-            'api'	=> $api,
+        $list = $this->getTree();
+        return $this->fetch('doc',[
             'info' => $info,
-            'list' => $list,
-            'lists' => $tree,
-    	]);
+            'api' => $api,
+            'list' => $list
+        ]);
     }
-    public function getTree($list,$pid)
-    {
-        $tree = array();
-        foreach($list as $k => $v)
+
+    public function getTree(){
+        $cateCount = db('sort')->where('type',0)->count();
+        $cates = Db::name('sort')->order('id', 'desc')->where('type',0)->select();/*查文章分类*/
+        for($i=0;$i<$cateCount;$i++)
         {
-            if($v['pid'] == $pid)
-            { 
-                $v['nr'] = $this->getTree($list, $v['id']);
-                $tree[] = $v;
-            }
+            $cates[$i]['nr'] = db('info')->where(array('sort'=>$cates[$i]['id']))->select();
+            $cates[$i]['count'] = db('info')->where(array('sort'=>$cates[$i]['id']))->count();
         }
-        return $tree;
+        return $cates;
+    }
+
+    public function post(){
+        $id = input('id');
+        $post = Db::name('post')->where("id='$id'")->find();
+        $sort = Db::name('sort')->where("id='$post[sort]'")->find();
+        $post['sort'] = $sort['name'];
+        $info = Db::name('setup')->field('title,keywords,desc,baidu,css,js')->find();
+        $markdown = new Parsedown;
+        $post['content'] = $markdown->text($post['content']);
+        return $this->fetch('post',[
+            'info' => $info,
+            'post' => $post,
+        ]);
+    }
+
+    public function postList(){
+        $info = Db::name('setup')->field('title,keywords,desc,baidu,css,js')->find();
+        $postList = Db::name('post')->field('id,title,time')->order('id desc')->select();
+        return $this->fetch('postList',[
+            'info' => $info,
+            'post' => $postList,
+        ]);
+    }
+
+    public function getCount(){
+        $id = removeXss(input('id'));
+        $count = Db::name('info')->where("path='$id'")->update([
+            'count' => Db::raw('count+1')
+        ]);
+        if($count){
+            return returnJsonData(200,'success',null);
+        }else{
+            return returnJsonData(201,'error',null);
+        }
     }
 }

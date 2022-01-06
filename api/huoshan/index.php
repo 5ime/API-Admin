@@ -2,7 +2,11 @@
 /**
 * Name:火山短视频
 */
-include "../count.php";
+include '../black.php';
+$path = __FILE__;
+$test = explode('\\',$path);
+$path = $test[count($test)-3]."/".$test[count($test)-2];
+file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
 
 header('Access-Control-Allow-Origin:*');
 header('Content-Type:text/json;charset=utf8');

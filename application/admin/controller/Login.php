@@ -1,72 +1,63 @@
 <?php
 namespace app\admin\controller;
-use think\Db;
-use think\Controller;
-use think\Validate;
-use think\Session;
-use think\Request;
-class Login extends Controller
 
+use think\facade\Session;
+use think\captcha\Captcha;
+use think\Controller;
+use think\Db;
+
+class Login extends Controller
 	{
-	public function _initialize(){
-		if(!empty(Session::get('USER_INFO_ID'))){
-			$this->success("您已登录,正在跳转后台",url('index/index'));
-		}
-	}
-	public function index(){
-		return $this->fetch(); 
-	}
-	public function fromlogin(){
-	$username=$this->remove_xss($_POST['username']);
-		$password = jmpwd($_POST['password']);
-		$re = Db::name('user')->where(array('username' =>$username ,'password'=>$password ))->find();
-	if (!empty($re)) {
-		$data = $re['id'];
-		Session::set('USER_INFO_ID',$data);
-		$this->success("登入成功,正在跳转后台",url('index/index'));
-	}else{
-		$this->error("登入失败!请检查信息");
-	}
-	}	
-	function remove_xss($val) {
-		$val = preg_replace('/([\x00-\x08,\x0b-\x0c,\x0e-\x19])/', '', $val);
-		$search = 'abcdefghijklmnopqrstuvwxyz';
-		$search .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$search .= '1234567890!@#$%^&*()';
-		$search .= '~`";:?+/={}[]-_|\'\\';
-		for ($i = 0; $i < strlen($search); $i++) {
-		$val = preg_replace('/(&#[xX]0{0,8}'.dechex(ord($search[$i])).';?)/i', $search[$i], $val); // with a ;
-		$val = preg_replace('/(&#0{0,8}'.ord($search[$i]).';?)/', $search[$i], $val); // with a ;
-		}
-		$ra1 = array('javascript', 'vbscript', 'expression', 'applet', 'meta', 'xml', 'blink', 'link', 'style', 'script', 'embed', 'object', 'iframe', 'frame', 'frameset', 'ilayer', 'layer', 'bgsound', 'title', 'base');
-		$ra2 = array('onabort', 'onactivate', 'onafterprint', 'onafterupdate', 'onbeforeactivate', 'onbeforecopy', 'onbeforecut', 'onbeforedeactivate', 'onbeforeeditfocus', 'onbeforepaste', 'onbeforeprint', 'onbeforeunload', 'onbeforeupdate', 'onblur', 'onbounce', 'oncellchange', 'onchange', 'onclick', 'oncontextmenu', 'oncontrolselect', 'oncopy', 'oncut', 'ondataavailable', 'ondatasetchanged', 'ondatasetcomplete', 'ondblclick', 'ondeactivate', 'ondrag', 'ondragend', 'ondragenter', 'ondragleave', 'ondragover', 'ondragstart', 'ondrop', 'onerror', 'onerrorupdate', 'onfilterchange', 'onfinish', 'onfocus', 'onfocusin', 'onfocusout', 'onhelp', 'onkeydown', 'onkeypress', 'onkeyup', 'onlayoutcomplete', 'onload', 'onlosecapture', 'onmousedown', 'onmouseenter', 'onmouseleave', 'onmousemove', 'onmouseout', 'onmouseover', 'onmouseup', 'onmousewheel', 'onmove', 'onmoveend', 'onmovestart', 'onpaste', 'onpropertychange', 'onreadystatechange', 'onreset', 'onresize', 'onresizeend', 'onresizestart', 'onrowenter', 'onrowexit', 'onrowsdelete', 'onrowsinserted', 'onscroll', 'onselect', 'onselectionchange', 'onselectstart', 'onstart', 'onstop', 'onsubmit', 'onunload');
-		$ra = array_merge($ra1, $ra2);
-		$found = true; // keep replacing as long as the previous round replaced something
-		while ($found == true) {
-		$val_before = $val;
-		for ($i = 0; $i < sizeof($ra); $i++) {
-			$pattern = '/';
-			for ($j = 0; $j < strlen($ra[$i]); $j++) {
-			if ($j > 0) {
-			       $pattern .= '(';
-			       $pattern .= '(&#[xX]0{0,8}([9ab]);)';
-			       $pattern .= '|';
-			       $pattern .= '|(&#0{0,8}([9|10|13]);)';
-			       $pattern .= ')*';
-			}
-		    $pattern .= $ra[$i][$j];
-		}
-		$pattern .= '/i';
-		$replacement = substr($ra[$i], 0, 2).'<x>'.substr($ra[$i], 2); // add in <> to nerf the tag
-		$val = preg_replace($pattern, $replacement, $val); // filter out the hex tags
-			if ($val_before == $val) {
-			    // no replacements were made, so exit the loop
-				$found = false;
-			}
-		}
-		}
-	   return $val;
-	}
-	
-}
+        public function index()
+        {
+            if(!request()->isPost())
+            {
+                return $this->fetch();
+            }else{
+                $code = removeXss(input('post.checkcode'));
+                $username = removeXss(input('post.username'));
+                $password = removeXss(input('post.password'));
+                $server = Db::name('setup')->field('server')->find();
+                $captcha = new Captcha();
+                if(!$captcha->check($code))
+                {
+                    return returnJsonData(201,'验证码错误',null);
+                }
+                if(empty($username))
+                {
+                    return returnJsonData(201,'用户名不能为空',null);
+                }
+                if(empty($password))
+                {
+                    return returnJsonData(201,'密码不能为空',null);
+                }
+                $info = Db::name('user')->where('username',$username)->find();
+                if(empty($info))
+                {
+                    return returnJsonData(201,'信息有误',null);
+                }
+                $pass = hashPwd($password);
+                if($pass != $info['password'])
+                {
+                    return returnJsonData(201,'信息有误',null);
+                }
+                Session::set('adminid', $info['uid']);
+                Session::set('adminname', $info['username']);
+                if(!empty($server['server']))
+                {
+                    $ip = get_ip();
+                    $send = "https://sctapi.ftqq.com/".$server['server'].".send?title=%E7%99%BB%E5%BD%95%E6%8F%90%E9%86%92&desp=". $ip."%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F";
+                    file_get_contents($send);
+                }
+                return returnJsonData(200,'正在登录',null);
+            }
+        }
+
+        public function verify()
+        {
+            $config = ['length' => 4];
+            $captcha = new Captcha($config);
+            return $captcha->entry();   
+        }
+    }
 ?>

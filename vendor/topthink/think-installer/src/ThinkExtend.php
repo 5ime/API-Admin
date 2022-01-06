@@ -11,24 +11,25 @@
 
 namespace think\composer;
 
-use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 
 class ThinkExtend extends LibraryInstaller
 {
-
     public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        parent::install($repo, $package);
-        $this->copyExtraFiles($package);
+        return parent::install($repo, $package)
+            ->then(function () use ($package) {
+                $this->copyExtraFiles($package);
+            });
     }
 
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
-        parent::update($repo, $initial, $target);
-        $this->copyExtraFiles($target);
-
+        return parent::update($repo, $initial, $target)
+            ->then(function () use ($target) {
+                $this->copyExtraFiles($target);
+            });
     }
 
     protected function copyExtraFiles(PackageInterface $package)
@@ -39,32 +40,26 @@ class ThinkExtend extends LibraryInstaller
 
             if (!empty($extra['think-config'])) {
 
-                $composerExtra = $this->composer->getPackage()->getExtra();
+                $configDir = 'config';
 
-                $appDir = !empty($composerExtra['app-path']) ? $composerExtra['app-path'] : 'application';
+                $this->filesystem->ensureDirectoryExists($configDir);
 
-                if (is_dir($appDir)) {
+                //配置文件
+                foreach ((array) $extra['think-config'] as $name => $config) {
+                    $target = $configDir . DIRECTORY_SEPARATOR . $name . '.php';
+                    $source = $this->getInstallPath($package) . DIRECTORY_SEPARATOR . $config;
 
-                    $extraDir = $appDir . DIRECTORY_SEPARATOR . 'extra';
-                    $this->filesystem->ensureDirectoryExists($extraDir);
-
-                    //配置文件
-                    foreach ((array) $extra['think-config'] as $name => $config) {
-                        $target = $extraDir . DIRECTORY_SEPARATOR . $name . '.php';
-                        $source = $this->getInstallPath($package) . DIRECTORY_SEPARATOR . $config;
-
-                        if (is_file($target)) {
-                            $this->io->write("<info>File {$target} exist!</info>");
-                            continue;
-                        }
-
-                        if (!is_file($source)) {
-                            $this->io->write("<info>File {$target} not exist!</info>");
-                            continue;
-                        }
-
-                        copy($source, $target);
+                    if (is_file($target)) {
+                        $this->io->write("<info>File {$target} exist!</info>");
+                        continue;
                     }
+
+                    if (!is_file($source)) {
+                        $this->io->write("<info>File {$target} not exist!</info>");
+                        continue;
+                    }
+
+                    copy($source, $target);
                 }
             }
         }

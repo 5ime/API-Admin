@@ -1,0 +1,71 @@
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-progress" style="display: none;">
+        <div class="mdui-progress-indeterminate"></div>
+    </div>
+    <div class="mdui-row">
+        <div class="mdui-col-xs-12">
+            <div class="mdui-table-fluid list">
+                <table class="mdui-table mdui-table-hoverable mdui-typo">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>分类名称</th>
+                            <th>分类图标</th>
+                            <th>分类类型</th>
+                            <th>最后修改时间</th>
+                            <th>操作管理</th>
+                        </tr>
+                    </thead>
+                    <tbody id='table'></tbody>
+                </table>
+            </div>
+            <div class="mdui-btn-group mdui-float-right" id="page"></div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.mdui-container').hide();
+    $(".loading").show();
+    $.ajax({
+        url: "{:url('sort/getList')}" + "?page=" + getQueryVariable("page"),
+        type: "get",
+        dataType: "json",
+        success: function(json) {
+            var html = '';
+            var pages = '';
+            var tableHead = '<thead><tr><th>#</th><th>分类名称</th><th>分类图标</th><th>所属类型</th><th>最后修改时间</th><th>操作管理</th></tr></thead><tbody>';
+            var butHtml = '<a class="mdui-btn mdui-btn-raised mdui-btn-dense moe-btn" ';
+            for (var i = 0; i < json.data.data.length; i++) {
+                let type = json.data.data[i].type == 0 ? '接口' : '文章';
+                html += '<tr><td>' + json.data.data[i].id + '</td><td>' + json.data.data[i].name + '</td><td><i class="mdui-list-item-icon mdui-icon material-icons ">' + json.data.data[i].icon + '</i></td><td>' + type + '</td><td>' + getLocalTime(json.data.data[i].time) + '</td><td><a onclick="sortEdit(' + json.data.data[i].id + ')">修改</a> <a onclick="sortDelete(' + json.data.data[i].id + ')">删除</a></td></tr>';
+            }
+            for (var j = 0; j < json.data.last_page; j++) {
+                pages += butHtml + 'href="?page=' + (j + 1) + '">' + (j + 1) + '</a>';
+            }
+            if (getQueryVariable("page") == 1 || json.data.current_page == 1) {
+                pages = butHtml + 'disabled>«</a>' + pages;
+            } else {
+                pages = butHtml + 'href="?page=' + (parseInt(json.data.current_page) - 1) + '">«</a>' + pages;
+            }
+            if (getQueryVariable("page") == json.data.last_page || json.data.last_page == 1) {
+                pages += butHtml + 'disabled>»</a>';
+            } else {
+                pages += butHtml + 'href="?page=' + (parseInt(json.data.current_page) + 1) + '">»</a>';
+            }
+
+            setTimeout(function() {
+                $('#table').html(html);
+                $('#page').html(pages);
+                $(".loading").hide();
+                if (json.data.current_page == 1) {
+                    $("#page a").eq(1).addClass("mdui-btn-active");
+                } else if (json.data.current_page == getQueryVariable("page")) {
+                    $("#page a").eq(getQueryVariable("page")).addClass("mdui-btn-active");
+                }
+                $(".mdui-container").show();
+            }, 500);
+        }
+    });
+</script>
+{include file="footer" /}

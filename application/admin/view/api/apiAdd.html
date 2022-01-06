@@ -1,0 +1,172 @@
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-col-xs-12">
+        <div class="mdui-card">
+            <div class="mdui-row">
+                <div class="mdui-col-md-1">
+                    <div class="mdui-textfield" style="overflow: unset;">
+                        <select class="mdui-select" id="apiType" mdui-select>
+                            <option value="get">GET</option>
+                            <option value="post">POST</option>
+                            <option value="request">均可</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mdui-col-md-1">
+                    <div class="mdui-textfield" style="overflow: unset;">
+                        <select class="mdui-select" id="apiSort"></select>
+                    </div>
+                </div>
+                <div class="mdui-col-md-1 mdui-col-sm-4">
+                    <div class="mdui-textfield">
+                        <input type="text" id="apiIcon" class="mdui-textfield-input" value="dvr" placeholder="ICON" />
+                        <div class="mdui-textfield-helper mdui-typo">
+                            <a href="https://www.mdui.org/docs/material_icon" target="_blank">选择图标</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mdui-col-md-3  mdui-col-sm-6">
+                    <div class="mdui-textfield">
+                        <input type="text" id="apiName" class="mdui-textfield-input" maxlength="7" placeholder="接口名称" />
+                        <div class="mdui-textfield-helper">保持在七个字内</div>
+                    </div>
+                </div>
+                <div class="mdui-col-md-3 mdui-col-sm-6">
+                    <div class="mdui-textfield">
+                        <input type="text" id="apiDoc" class="mdui-textfield-input" placeholder="文档地址" />
+                        <div class="mdui-textfield-helper">http[s]://domain.com/doc/[文档地址]</div>
+                    </div>
+                </div>
+                <div class="mdui-col-md-3 mdui-col-sm-6">
+                    <div class="mdui-textfield">
+                        <input type="text" id="apiPath" class="mdui-textfield-input" id="apiPath" placeholder="接口地址" />
+                        <div class="mdui-textfield-helper">http[s]://domain.com/api/[接口地址]</div>
+                    </div>
+                </div>
+                <div class="mdui-col-md-6">
+                    <div class="mdui-textfield mdui-textfield-floating-label">
+                        <textarea class="mdui-textfield-input" placeholder="接口描述" rows="2" id="apiDesc"></textarea>
+                    </div>
+                </div>
+                <div class="mdui-col-md-6">
+                    <div class="mdui-textfield mdui-textfield-floating-label">
+                        <textarea class="mdui-textfield-input" placeholder="调用效果" rows="2" id="apiDemo"></textarea>
+                    </div>
+                </div>
+                <div class="mdui-col-md-9">
+                    <div class="mdui-textfield">
+                        <input type="text" class="mdui-textfield-input" id="apiValue" placeholder="请求测试" />
+                        <div class="mdui-textfield-helper">name1=value&name2=value</div>
+                    </div>
+                </div>
+                <div class="mdui-col-md-3">
+                    <div class="mdui-textfield">
+                        <a class="mdui-btn mdui-btn-block mdui-btn-raised" id="getInfo">获取</a>
+                    </div>
+                </div>
+                <div class="mdui-col-md-12">
+                    <div class="mdui-textfield mdui-textfield-floating-label">
+                        <div class="mdui-col-md-12">
+                            <div class="mdui-textfield mdui-textfield-floating-label">
+                                <textarea class="mdui-textfield-input" placeholder="接口返回数据" rows="6" id="apiInfo"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mdui-col-md-12">
+                        <div id="editor">
+                            <textarea id="detail" style="display:none;"><table class="mdui-table"><thead><tr>
+<th>参数名称</th><th>类型</th><th>参数值</th><th>描述</th></tr></thead><tbody>
+<tr><td><code>参数名</code></td>
+<td>可选</td><td>参数值</td>
+<td>填写说明</tr>
+</tbody></table></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button id="apiGet" class="mdui-btn mdui-btn-block mdui-btn-raised">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/static/editor/editormd.min.js"></script>
+<script src="/public/static/editor/lib/marked.min.js"></script>
+<script src="/public/static/editor/lib/prettify.min.js"></script>
+<script src="/public/static/mdui/js/mdui.min.js"></script>
+<script type="text/javascript">
+    $('.mdui-container').hide();
+    $('.loading').show();
+    $.get("/admin/sort/getList", function(data) {
+        var inst = new mdui.Select('#apiSort');
+        if (data.code == 200) {
+            for (var i = 0; i < data.data.data.length; i++) {
+                if (data.data.data[i].type == 0) {
+                    $('#apiSort').append('<option value="' + data.data.data[i].id + '">' + data.data.data[i].name + '</option>');
+                }
+            }
+            inst.handleUpdate();
+        } else {
+            $(".loading").hide();
+            mdui.snackbar({
+                message: '请求失败'
+            });
+        }
+        setTimeout(() => {
+            $(function() {
+                var editor = editormd("editor", {
+                    width: "100%",
+                    height: 450,
+                    path: "/public/static/editor/lib/",
+                    htmlDecode: true,
+                });
+            });
+            $('.loading').hide();
+            $('.mdui-container').show();
+        }, 500);
+    });
+
+    $('#apiGet').click(function() {
+        $(".loading").show();
+        var apiValue = $('#apiValue').val();
+        var apiPath = $('#apiPath').val();
+        var apiName = $('#apiName').val();
+        var apiDesc = $('#apiDesc').val();
+        var apiDemo = $('#apiDemo').val();
+        var apiDoc = $('#apiDoc').val();
+        var apiIcon = $('#apiIcon').val();
+        var apiType = $('.mdui-select-selected').eq(0).text();
+        var apiInfo = $('#apiInfo').val();
+        var apiDetail = $('#detail').val();
+        var apiSort = $('.mdui-select-selected').eq(1).text();
+        var apiData = {
+            request: apiValue,
+            path: apiPath,
+            name: apiName,
+            desc: apiDesc,
+            demo: apiDemo,
+            doc: apiDoc,
+            icon: apiIcon,
+            type: apiType,
+            info: apiInfo,
+            detail: apiDetail,
+            sort: apiSort,
+        };
+        console.log(apiData);
+        $.post("/admin/api/apiPostadd", apiData, function(data) {
+            if (data.code == 200) {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                $(".loading").hide();
+            }
+            return false;
+        });
+    });
+</script>
+{include file="footer" /}

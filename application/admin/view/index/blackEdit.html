@@ -1,0 +1,70 @@
+{include file="header" title="$title" /}
+<div class="mdui-container">
+    <div class="mdui-col-xs-12">
+        <div class="mdui-card">
+            <div class="mdui-row">
+                <div class="mdui-col-md-1">
+                    <div class="mdui-textfield" style="overflow: inherit;">
+                        <select class="mdui-select" id="reType" mdui-select="{position: 'bottom'}">
+                                <option value="0">Referer</option>
+                                <option value="1">IP</option>
+                              </select>
+                    </div>
+                </div>
+                <div class="mdui-col-md-11">
+                    <div class="mdui-textfield">
+                        <input type="text" id="reValue" class="mdui-textfield-input" placeholder="填写限制目标" />
+                        <div class="mdui-textfield-helper">保持在六个字内</div>
+                    </div>
+                </div>
+
+                <button id="reGet" class="mdui-btn mdui-btn-block mdui-btn-raised">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $.get("/admin/index/blackOper?id=" + getQueryVariable('id'), function(data) {
+        $(".loading").show();
+        if (data.code == 200) {
+            $(".loading").hide();
+            $('.mdui-select-selected').text(data.data.type == 0 ? 'Referer' : 'IP');
+            $('#reValue').val(data.data.value);
+        } else {
+            $(".loading").hide();
+            mdui.snackbar({
+                message: '分类不存在'
+            });
+        }
+        return false;
+    });
+
+    $('#reGet').click(function() {
+        $(".loading").show();
+        var reType = $('.mdui-select-selected').text();
+        var reValue = $('#reValue').val();
+        var reType = reType == 'Referer' ? 0 : 1;
+        var reData = {
+            value: reValue,
+            type: reType,
+            id: getQueryVariable('id')
+        };
+        $.post("/admin/index/blackUpdate", reData, function(data) {
+            if (data.code == 200) {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                mdui.snackbar({
+                    message: data.msg,
+                });
+                $(".loading").hide();
+            }
+            return false;
+        });
+    });
+</script>
+{include file="footer" /}
