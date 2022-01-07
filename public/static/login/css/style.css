@@ -1,0 +1,133 @@
+body {
+    margin: 6% auto auto auto;
+    max-width: 500px;
+    color: #545454;
+}
+
+body::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .5;
+    z-index: -1;
+    content: "";
+    position: fixed;
+    background-size: cover;
+    background-image: url('https://tenapi.cn/acg');
+}
+
+.card {
+    backdrop-filter: blur(30px);
+    background: rgb(255 255 255 / 60%);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+    padding: 55px;
+}
+
+.card>h2 {
+    font-size: 50px;
+    text-align: center;
+    text-shadow: 0 0 10px black;
+    color: white;
+    margin: -5px auto -5px auto;
+}
+
+.form-group {
+    overflow: hidden;
+    position: relative;
+    margin: 10px 0 10px;
+}
+
+.form-group>input {
+    border: none;
+    padding: 10px 0 10px 40px;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+    border-bottom: 2px solid #d8d8d8;
+    transition: border-bottom .3s;
+    background-color: transparent;
+}
+
+.form-group>.iconfont {
+    position: absolute;
+    top: 50px;
+    left: 12px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #9e9e9e;
+    transition: color .3s;
+}
+
+.form-group>.name {
+    font-size: 13px;
+}
+
+a {
+    text-decoration: none;
+    color: #03A9F4;
+}
+
+.form-group input:focus {
+    border-bottom: 2px solid #2196F3;
+}
+
+.form-group input:focus+.iconfont {
+    color: #2196F3;
+}
+
+button {
+    border: none;
+    outline: none;
+    margin: 1rem 0 0;
+    width: 100%;
+    height: 3rem;
+    border-radius: 3rem;
+    background: linear-gradient(90deg, rgb(181, 154, 254), rgb(245, 189, 253));
+    box-shadow: 0 0 8px rgb(181 154 254);
+    cursor: pointer;
+    color: white;
+    font-family: miaowu;
+}
+
+hr.or {
+    height: 1px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    position: relative;
+    overflow: initial;
+    margin: 30px 0;
+}
+
+.copy>p {
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 20px;
+    color: #545454;
+}
+
+.form-group>.checkcode>img {
+    float: right;
+    width: 48%;
+    border-radius: 6px;
+}
+
+.form-group>.checkcode>input {
+    border: none;
+    padding: 10px 0 10px 10px;
+    font-size: 16px;
+    outline: none;
+    width: 48%;
+    border-bottom: 2px solid #d8d8d8;
+    transition: border-bottom .3s;
+    background-color: transparent;
+}
+
+@media (max-width: 500px) {
+    .card {
+        margin: 15% 5% auto 5%;
+        padding: 30px;
+    }
+}
