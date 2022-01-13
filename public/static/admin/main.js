@@ -78,7 +78,7 @@ mdui.$('#upDate').on('click', function() {
                     {
                         text: '前往下载',
                         onClick: function() {
-                            window.open(data.data);
+                            window.open(data.data.download);
                             this.close();
                         }
                     }
