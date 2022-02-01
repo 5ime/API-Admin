@@ -19,7 +19,7 @@ return [
     // 应用地址
     'app_host'               => 'https://github.com/5ime.cn/api-admin',
     // 应用版本
-    'app_version'            => '2.0',
+    'app_version'            => '2.0.2',
     // 应用调试模式
     'app_debug'              => false,
     // 应用Trace

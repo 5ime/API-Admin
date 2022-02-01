@@ -1,9 +1,6 @@
 <?php
 include '../black.php';
-$path = __FILE__;
-$test = explode('\\',$path);
-$path = $test[count($test)-3]."/".$test[count($test)-2];
-file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
+
 //允许跨域
 header("Access-Control-Allow-Origin:*");
 

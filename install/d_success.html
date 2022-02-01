@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>开始安装 - 安装完成</title>
     <link href="./css/material-dashboard.min.css?v=2.1.1" rel="stylesheet">
     <meta data-n-head="1" data-hid="viewport" name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
-<div class="progress">
-  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #9c27b0" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #ff9800" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #f44336" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-  <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #4caf50" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #9c27b0" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #ff9800" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #f44336" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 25%;background-color: #4caf50" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
 
-<div class="card card-nav-tabs text-center" style="width: 50%;/* margin-top: 30%; */margin: 10% auto;">
-    <div class="card-header card-header-primary" style="padding-top: 4px;padding-bottom: 10px;">
-        <a href="#" class="badge badge-success"><?php echo $config['version']?></a>
+    <div class="card card-nav-tabs text-center" style="width: 50%;/* margin-top: 30%; */margin: 10% auto;">
+        <div class="card-header card-header-primary" style="padding-top: 4px;padding-bottom: 10px;">
+            <a href="#" class="badge badge-success">
+                <?php echo $config['version']?>
+            </a>
             <br>安装完成</div>
         <div class="card-body">
             <h4 class="card-title">安装完成</h4>
             <center>
-               <div class="alert alert-success" role="alert" style="width: 50%;">后台账号：<?php echo $config['account']; ?></div>
-               <div class="alert alert-success" role="alert" style="width: 50%;">后台密码：<?php echo $config['password']; ?></div>
+                <div class="alert alert-success" role="alert" style="width: 50%;">后台账号：
+                    <?php echo $config['account']; ?>
+                </div>
+                <div class="alert alert-success" role="alert" style="width: 50%;">后台密码：
+                    <?php echo $config['password']; ?>
+                </div>
             </center>
             <p class="card-text text-center">程序使用文档：<a target="_blank" href="https://github.com/5ime/api-admin/wiki">https://github.com/5ime/api-admin/wiki</a></p>
             <p class="card-text text-left">您在使用中有任何问题请前往：<a target="_blank" href="https://github.com/5ime/API-Admin/issues">Issues </a>进行意见反馈。</p>
-			<p class="card-text text-left">程序更新地址<a target="_blank" href="https://github.com/5ime/api-admin/">API-Admin</a>丨作者博客：<a target="_blank" href="https://5ime.cn">I Am I</a></p>
+            <p class="card-text text-left">程序更新地址：<a target="_blank" href="https://github.com/5ime/api-admin/">API-Admin</a>丨作者博客：<a target="_blank" href="https://5ime.cn">I Am I</a></p>
             <p class="card-text text-center">为了您的网站安全 请及时修改后台账号、密码和删除install目录</p>
             <a href="/" class="btn btn-primary btn-pro-component">访问前台<div class="ripple-container"></div></a>
             <a href="/admin/index/index.html" class="btn btn-primary btn-pro-component">访问后台<div class="ripple-container"></div></a>
-        </div>  
+        </div>
     </div>
 </body>
+
 </html>

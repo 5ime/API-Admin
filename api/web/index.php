@@ -3,10 +3,7 @@
  * 爱站权重获取
  */
 include '../black.php';
-$path = __FILE__;
-$test = explode('\\',$path);
-$path = $test[count($test)-3]."/".$test[count($test)-2];
-file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
+
 header("Access-Control-Allow-Origin:*");
 header('Content-type: application/json');
 if(!$_GET['url']){error();}

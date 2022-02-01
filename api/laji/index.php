@@ -1,9 +1,6 @@
 <?php
 include '../black.php';
-$path = __FILE__;
-$test = explode('\\',$path);
-$path = $test[count($test)-3]."/".$test[count($test)-2];
-file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
+
 header('Access-Control-Allow-Origin:*');header('Content-type:application/json; charset=utf-8');error_reporting(0);function myCurl($url){
     $ch = curl_init();     // Curl 初始化
     $timeout = 30;     // 超时时间：30s

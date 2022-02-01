@@ -1,10 +1,7 @@
 <?php
 include '../black.php';
 
-$path = __FILE__;
-$test = explode('\\',$path);
-$path = $test[count($test)-3]."/".$test[count($test)-2];
-file_get_contents('http://'.$_SERVER['HTTP_HOST'].'/getCount?id='.$path);
+
 
 header('Access-Control-Allow-Origin:*'); // *代表允许任何网址请求
 $content = "0.杀了个用户祭天<br>
