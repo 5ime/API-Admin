@@ -1,7 +1,6 @@
 <?php
 ini_set('display_errors', 0);
 $file = '../black.data';
-<<<<<<< HEAD
 $test = explode('/',$_SERVER['PHP_SELF']);
 $path = $test[count($test)-3]."/".$test[count($test)-2];
 if(is_https()){
@@ -10,8 +9,6 @@ if(is_https()){
   wCount('http://'.$_SERVER['SERVER_NAME'].'/getCount?id='.$path);
 }
 
-=======
->>>>>>> f185f778e008971ca595cd069fd558dfc3c06bab
 $data = fopen($file, 'r');
 if(filesize($file) > 0){
     $data = fread($data, filesize($file));
@@ -64,7 +61,6 @@ function get_ip()
 	unset($cips);
 	return $cip;
 }
-<<<<<<< HEAD
 
 function is_https() {
     if ( !empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off') {
@@ -87,5 +83,3 @@ function wCount($url){
     $output = curl_exec($ch);
     curl_close($ch);
 }
-=======
->>>>>>> f185f778e008971ca595cd069fd558dfc3c06bab
