@@ -146,9 +146,12 @@
             if (data.code == 200) {
                 $('.mdui-table-fluid').show();
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#New10').append('<tr><td>' + parseInt(i + 1) + '</td><td>' + data.data[i][0] + '</td><td>' + data.data[i][3] + '</td><td>' + data.data[i][4] + '</td><td>' + data.data[i].slice(-2, -1) + '</td><td>' + data.data[i][1] + '</td></tr>');
+                    $('#New10').append('<tr><td>' + parseInt(i + 1) + '</td><td>' + data.data[i]['ip'] + '</td><td>' + data.data[i]['type'] + '</td><td>' + data.data[i]['path'] + '</td><td>' + data.data[i]['status'] + '</td><td>' + data.data[i]['time'] + '</td></tr>');
                 }
-            } else {
+            }else if(data.code == 404){
+                $('.mdui-table-fluid').show();
+                $('#New10').append('<tr><td colspan="6" style="text-align: center;">暂无数据，请填写日志路径</td></tr>');
+            }else {
                 mdui.snackbar({
                     message: '最新请求数据获取失败，请检查日志文件是否可以被访问！',
                     position: 'top'
@@ -165,7 +168,7 @@
             success: function(data) {
                 $('#New10').html('');
                 for (var i = 0; i < data.data.length; i++) {
-                    $('#New10').append('<tr><td>' + parseInt(i + 1) + '</td><td>' + data.data[i][0] + '</td><td>' + data.data[i][3] + '</td><td>' + data.data[i][4] + '</td><td>' + data.data[i].slice(-2, -1) + '</td><td>' + data.data[i][1] + '</td></tr>');
+                    $('#New10').append('<tr><td>' + parseInt(i + 1) + '</td><td>' + data.data[i]['ip'] + '</td><td>' + data.data[i]['type'] + '</td><td>' + data.data[i]['path'] + '</td><td>' + data.data[i]['status'] + '</td><td>' + data.data[i]['time'] + '</td></tr>');
                 }
             }
         });

@@ -88,35 +88,36 @@ class Index extends Controller
     {
         $log = Db::name('setup')->field('log')->find();
         $file = $log["log"];
-        $num = 10;
+        if (empty($file)) {
+            return returnJsonData(404, '暂无数据', null);
+        }
         $fp = @fopen($file,"r");
         if(!$fp){
             return returnJsonData(201, '获取失败', null);
         }
-        $pos = -2;
-        $eof = "";
-        $head = false;
-        $data = array();
-        while($num>0){
-            while($eof != "\n"){
-                if(fseek($fp, $pos, SEEK_END)==0){
-                    $eof = fgetc($fp);$pos--;
-                }else{
-                    fseek($fp,0,SEEK_SET);$head = true;break;
+        $data = [];
+        while(!feof($fp)){
+            $line = fgets($fp);
+            if(strpos($line,'/api/') !== false && strpos($line,'/admin/') === false){
+                if(count($data) < 10){
+                    $data[] = $line;
                 }
             }
-            array_unshift($data,fgets($fp));
-            if($head){ break; }$eof = "";$num--;
         }
         fclose($fp);
-        $data = str_replace('"', ' ', $data);
-        $data = str_replace('[', '', $data);
-        $data = str_replace(']', '', $data);
-        $data = str_replace('- - ', '', $data);
-        $data = str_replace('  ', ' ', $data);
-        $data = str_replace('?', ' ', $data);
-        $data = array_map('explode', array_fill(0, count($data), ' '), $data);
-        rsort($data);
+        $data = array_reverse($data);
+        $data = array_map(function ($item) {
+            $item = explode(' ', $item);
+
+            $item = [
+                'time' => substr($item[3], 1),
+                'status' => $item[8],
+                'path' => $item[6],
+                'ip' => $item[0],
+                'type' => substr($item[5], 1)
+            ];
+            return $item;
+        }, $data);
         return returnJsonData(200, '获取成功', $data);
     }
 
