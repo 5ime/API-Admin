@@ -10,6 +10,32 @@
             float: left;
             margin-left: 10px;
         }
+
+        .content {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .content h3 {
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+            line-height: 30px;
+            user-select: none;
+        }
+
+        .content p {
+            font-size: 18px;
+            margin: 0;
+            padding: 0;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .mdui-table th {
+            user-select: none;
+        }
     </style>
     <div class="mdui-row">
         <div class="mdui-col-md-6">
@@ -17,7 +43,7 @@
                 <div class="mdui-card">
                     <div class="content">
                         <h3>调用总数</h3>
-                        <p id="count"></p>
+                        <p id="count">NaN</p>
                     </div>
                 </div>
             </div>
@@ -25,7 +51,7 @@
                 <div class="mdui-card">
                     <div class="content">
                         <h3>接口总数</h3>
-                        <p id="info"></p>
+                        <p id="info">NaN</p>
                     </div>
                 </div>
             </div>
@@ -33,7 +59,7 @@
                 <div class="mdui-card">
                     <div class="content">
                         <h3>分类总数</h3>
-                        <p id="sort"></p>
+                        <p id="sort">NaN</p>
                     </div>
                 </div>
             </div>
@@ -41,7 +67,7 @@
                 <div class="mdui-card">
                     <div class="content">
                         <h3>文章总数</h3>
-                        <p id="post"></p>
+                        <p id="post">NaN</p>
                     </div>
                 </div>
             </div>
@@ -78,67 +104,6 @@
     $('.mdui-container').hide();
     $('.loading').show();
     $.ajax({
-        url: '{:url("admin/index/getCount")}',
-        type: 'post',
-        dataType: 'json',
-        success: function(data) {
-            var data = data.data;
-            var ctx = document.getElementById("myChart");
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [],
-                    datasets: [{
-                        label: 'API Top 10',
-                        data: [],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(123, 128, 234, 0.2)',
-                            'rgba(57, 154, 457, 0.2)',
-                            'rgba(41, 132, 254, 0.2)',
-                            'rgba(77, 234, 238, 0.2)',
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(123, 128, 234, 1)',
-                            'rgba(57, 154, 457, 1)',
-                            'rgba(41, 132, 254, 1)',
-                            'rgba(77, 234, 238, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-            for (var i = 0; i < data.top10.length; i++) {
-                myChart.data.labels.push(data.top10[i].name);
-                myChart.data.datasets[0].data.push(data.top10[i].count);
-            }
-            $('#count').html(data.count);
-            $('#info').html(data.info);
-            $('#sort').html(data.sort);
-            $('#post').html(data.post);
-        }
-    });
-    $.ajax({
         url: "{:url('admin/index/getNew10')}",
         type: 'get',
         dataType: 'json',
@@ -173,8 +138,68 @@
             }
         });
     });
+
+    function getCount(){
+        $.ajax({
+        url: '{:url("admin/index/getCount")}',
+        type: 'post',
+        dataType: 'json',
+        success: function(data) {
+            var data = data.data;
+            var ctx = document.getElementById("myChart");
+            ctx.height = 130;
+            var dataList = []
+            var labelsList = []
+            for (var i = 0; i < data.top10.length; i++) {
+                labelsList.push(data.top10[i].name);
+                dataList.push(data.top10[i].count);
+            }
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labelsList,
+                    datasets: [{
+                        label: 'API Top 10',
+                        data: dataList,
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)',
+                            'rgba(123, 128, 234, 0.2)',
+                            'rgba(57, 154, 457, 0.2)',
+                            'rgba(41, 132, 254, 0.2)',
+                            'rgba(77, 234, 238, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255,99,132,1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)',
+                            'rgba(123, 128, 234, 1)',
+                            'rgba(57, 154, 457, 1)',
+                            'rgba(41, 132, 254, 1)',
+                            'rgba(77, 234, 238, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                }
+            });
+            $('#count').html(data.count);
+            $('#info').html(data.info);
+            $('#sort').html(data.sort);
+            $('#post').html(data.post);
+        }
+    });
+    }
+    
     setTimeout(() => {
         $('.mdui-container').show();
+        getCount();
         $('.loading').hide();
     }, 1000);
 </script>
