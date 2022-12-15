@@ -157,8 +157,6 @@ php;
 
 // 判断是否有该页面
 if (file_exists($url = $get . '.html')) {
-    $url = str_replace('.', '', $url);
-    $url = str_replace('/', '', $url);
     require $url;
 } else {
     $errorMsg = '没有该安装页面:' . $url;
