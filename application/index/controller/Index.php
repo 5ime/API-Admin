@@ -43,8 +43,9 @@ class Index extends Controller
     }
 
     public function post(){
-        $id = input('id');
+        $id = input('id',intval);
         $post = Db::name('post')->where("id='$id'")->find();
+    
         $sort = Db::name('sort')->where("id='$post[sort]'")->find();
         $post['sort'] = $sort['name'];
         $info = Db::name('setup')->field('title,keywords,desc,baidu,css,js')->find();
